@@ -1,6 +1,6 @@
 # nasulog
 
-ポエムを書きためるWebアプリケーション。pplogのような何か。
+ポエムを書きためるWebアプリケーション。[pplog](https://www.pplog.net/)のような何か。
 
 ## TODO
 
