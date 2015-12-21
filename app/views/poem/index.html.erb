@@ -1,0 +1,7 @@
+<h1>PoemList</h1>
+<%= link_to "新規ポエム", new_poem_path %>
+<ul>
+  <% @poems.each do |poem| %>
+    <%= link_to poem.title, poem %>
+  <% end %>
+</ul>
