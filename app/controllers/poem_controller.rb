@@ -19,8 +19,12 @@ class PoemController < ApplicationController
   end
 
   def edit
+    @poem = Poem.find(params[:id])
   end
 
   def update
+    @poem = Poem.find(params[:id])
+    @poem.update(title: params[:poem][:title], description: params[:poem][:description])
+    redirect_to @poem
   end
 end

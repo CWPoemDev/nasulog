@@ -1,0 +1,5 @@
+<h1>edit poem</h1>
+
+<%= form_for @poem, url: {action: 'update'} do |f| %>
+  <%= render partial: "poem/form", locals: {f: f} %>
+<% end %>
