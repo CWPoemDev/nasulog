@@ -2,7 +2,7 @@ class PoemController < ApplicationController
   before_filter :login_required
 
   def index
-    @poems = Poem.where(users_id: @current_user.id)
+    @poems = Poem.where(user_id: @current_user.id)
   end
 
   def show
@@ -14,7 +14,7 @@ class PoemController < ApplicationController
   end
 
   def create
-    @poem = Poem.create(users_id: @current_user.id ,title: params[:poem][:title], description: params[:poem][:description])
+    @poem = Poem.create(user_id: @current_user.id ,title: params[:poem][:title], description: params[:poem][:description])
     redirect_to @poem
   end
 
