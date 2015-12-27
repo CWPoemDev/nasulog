@@ -1,5 +1,6 @@
 class PoemController < ApplicationController
   before_filter :login_required
+  before_filter :is_mine, except: [:index]
 
   def index
     @poems = Poem.where(user_id: @current_user.id)
@@ -26,5 +27,11 @@ class PoemController < ApplicationController
     @poem = Poem.find(params[:id])
     @poem.update(title: params[:poem][:title], description: params[:poem][:description])
     redirect_to @poem
+  end
+
+  private
+
+  def is_mine
+    @is_mine = Poem.find(params[:id]).user_id == @current_user.id
   end
 end
