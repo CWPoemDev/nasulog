@@ -1,18 +1,34 @@
-<h1>home</h1>
+
 <% if @current_user.blank? %>
-  <a href="/auth/google_oauth2">ログイン/新規登録</a>
+  <div class="page-header">
+    <h1>Nasulog</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-9">
+      ポエムを綴る場所です。<br>
+      個人的な夢や目標、やりたいことややっていること。<br>
+      すこし改善した方が良いと思っていることや、もにょっていること。<br>
+      辛いと思っていることや、楽しいと思っていること。<br>
+      そのたもろもろ自由に書いていきましょう。<br>
+      気が向いたときに見に来ると、意外な発見があるかも知れません。
+    </div>
+  </div>
 <% else %>
-  <%= @current_user.name %>
-  <%= link_to "poem一覧", poem_index_path %>
-  <ul>
+  <div class="page-header">
+    <h1>みんなのポエム一覧</h1>
+  </div>
+  <ul class="list-group">
     <% @users.each do |user| %>
-    <li>
-      <div>
-        <%= user.name %>
-      </div>
+    <li class="list-group-item pull-left col-md-4">
       <div>
         <% poem = user.poem.order(:updated_at).last %>
         <%= link_to poem.title, poem %>
+      </div>
+      <div>
+        <%= user.name %>
+      </div>
+      <div class="text-right">
+        <%= poem.created_at %>
       </div>
     </li>
     <% end %>
