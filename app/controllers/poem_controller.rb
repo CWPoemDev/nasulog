@@ -3,7 +3,7 @@ class PoemController < ApplicationController
   before_filter :is_mine, except: [:index, :new, :create]
 
   def index
-    @poems = Poem.where(user_id: @current_user.id)
+    @poems = Poem.where(user_id: @current_user.id).order(created_at: :desc)
   end
 
   def show
