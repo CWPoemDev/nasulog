@@ -1,0 +1,22 @@
+<header>
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <%= link_to "Nasulog", home_index_path, class: "navbar-brand" %>
+      <div class="collapse navbar-collapse">
+        <% if current_user.present? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", home_index_path %></li>
+          <li><%= link_to "My Poem", poem_index_path %></li>
+        </ul>
+        <% end %>
+        <p class="navbar-text navbar-right">
+          <% if current_user.blank? %>
+            <a href="/auth/google_oauth2">ログイン/新規登録</a>
+          <% else %>
+            <%= current_user.name %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
