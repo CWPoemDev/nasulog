@@ -17,6 +17,7 @@ gem 'less-rails', git: 'git://github.com/metaskills/less-rails.git'
 gem 'twitter-bootstrap-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'simple_form'
 gem 'mysql2', '~> 0.3.13'
 
 group :development, :test do
