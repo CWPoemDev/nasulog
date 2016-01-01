@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20151220164144) do
 
   create_table "poems", force: :cascade do |t|
-    t.integer  "users_id",    limit: 4
+    t.integer  "user_id",     limit: 4
     t.text     "title",       limit: 65535
     t.text     "description", limit: 65535
     t.boolean  "show"

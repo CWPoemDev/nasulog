@@ -67,3 +67,6 @@ bower.json
 
 # database.ymlは
 /config/database.yml
+
+# dotenvの設定ファイル
+.env
