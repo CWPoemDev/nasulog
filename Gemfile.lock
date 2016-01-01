@@ -9,9 +9,8 @@ GIT
       sprockets (< 4.0)
 
 GIT
-  remote: git://github.com/suzan2go/less-rails.git
-  revision: 2c4a06273f3f48d98b6802a702c336d130299cc5
-  branch: fix-nomethoderror-for-sprockets3 
+  remote: git://github.com/metaskills/less-rails.git
+  revision: 539f28d174bfb2e6969a9cd04f89e65a730f2e8f
   specs:
     less-rails (2.7.0)
       actionpack (>= 4.0)
