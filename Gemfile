@@ -20,6 +20,7 @@ gem 'omniauth-google-oauth2'
 gem 'mysql2', '~> 0.3.13'
 
 group :development, :test do
+  gem 'annotate'
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'web-console', '~> 2.0'
