@@ -3,7 +3,7 @@
 </div>
 <div class="poem-area">
   <p>
-    <%= @poem.description %>
+    <%= markdown.render(@poem.description).html_safe %>
   </p>
 </div>
 <div>
