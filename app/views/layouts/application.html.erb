@@ -8,9 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: 'layouts/header', locals: {current_user: @current_user} %>
-<div class="container">
-  <%= yield %>
-</div>
+  <%= render partial: 'layouts/header', locals: {current_user: @current_user} %>
+  <div class="container">
+    <%= bootstrap_flash %>
+    <%= yield %>
+  </div>
 </body>
 </html>

@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :home
   resources :poem
+  resource :user, only: [:edit, :update]
   root to: 'home#index'
 end
