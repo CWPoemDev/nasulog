@@ -19,6 +19,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'mysql2', '~> 0.3.13'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'annotate'
