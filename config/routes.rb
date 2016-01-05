@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :home
   resources :poem
+  resources :favorite, only: [:create, :destroy]
   resource :user, only: [:edit, :update]
   root to: 'home#index'
 end
