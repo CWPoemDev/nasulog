@@ -13,4 +13,5 @@
 
 class User < ActiveRecord::Base
   has_many :poem, dependent: :destroy
+  has_many :favorite, dependent: :destroy
 end
