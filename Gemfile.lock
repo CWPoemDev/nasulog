@@ -179,6 +179,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -227,7 +232,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.11)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -274,13 +278,13 @@ DEPENDENCIES
   pry-doc
   pry-rails
   rails (= 4.2.5)
+  rails_12factor
   redcarpet
   rspec
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form
   spring
-  sqlite3
   therubyracer
   turbolinks
   twitter-bootstrap-rails

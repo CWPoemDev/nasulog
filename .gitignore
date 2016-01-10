@@ -65,8 +65,5 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-# database.ymlは
-/config/database.yml
-
 # dotenvの設定ファイル
 .env

@@ -1,29 +1,25 @@
-development:
+default: &default
   adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: nasulog_development
+  encoding: utf8mb4
   pool: 5
-  username: nasulog_dev
-  password: nasulog_dev
-  host: localhost
+
+development:
+  <<: *default
+  database: nasulog_development
+  socket: /tmp/mysql.sock
+  username: root
+  password: root
 
 test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  <<: *default
   database: nasulog_test
-  pool: 5
-  username: nasulog_dev
-  password: nasulog_dev
-  host: localhost
+  socket: /tmp/mysql.sock
+  username: root
+  password: root
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: nasulog_production
-  pool: 5
-  username: <%= ENV["DB_USER"] %>
-  password: <%= ENV["DB_PASS"] %>
-  host: localhost
+  <<: *default
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
+  host: <%= ENV['DB_HOST'] %>
