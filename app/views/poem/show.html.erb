@@ -6,10 +6,10 @@
     <%= markdown(@poem.description) %>
   </p>
 </div>
-<div>
-  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span>読んだよマークをつける</span>
+<div class="user_operation">
+  <span class="read_mark btn btn-primary">読んだよマークをつける</span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
 </div>
-<div>
+<div class="navigation">
   <ul class="nav nav-pills">
     <li role="presentation"><%= link_to "ポエムを編集する", edit_poem_path(@poem) if is_mine %></li>
     <li role="presentation"><%= link_to "自分のポエム一覧に戻る", poem_index_path if is_mine %></li>
