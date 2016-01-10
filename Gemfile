@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails', '4.2.5'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
@@ -20,6 +19,7 @@ gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'mysql2', '~> 0.3.13'
 gem 'redcarpet'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'annotate'
