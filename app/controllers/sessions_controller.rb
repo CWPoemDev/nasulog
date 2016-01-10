@@ -2,12 +2,17 @@ class SessionsController < ApplicationController
   def callback
     auth = request.env['omniauth.auth']
 
-    user = User.find_by(google_uid: auth[:uid])
-    unless user
-      user = User.create(google_uid: auth[:uid], name: auth[:info][:name], email: auth[:info][:email], image_url: auth[:info][:image])
+    if auth.info['email'].split('@')[1] == ENV['RESTRICT_DOMAIN']
+      user = User.find_by(google_uid: auth[:uid])
+      user = User.form_omniauth(auth) unless user
+      session[:user_id] = user.id
+      redirect_to root_path
+    else
+      flash[:error] = "
+        ドメインが#{ENV['RESTRICT_DOMAIN']}ではありません。正しいドメインでサインイン・ログインしてください
+      "
+      redirect_to root_path
     end
-    session[:user_id] = user.id
-    redirect_to root_path
   end
 
   def destroy
