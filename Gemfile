@@ -19,7 +19,6 @@ gem 'omniauth-google-oauth2'
 gem 'simple_form'
 gem 'mysql2', '~> 0.3.13'
 gem 'redcarpet'
-gem 'unicorn'
 gem 'rails_12factor'
 
 group :development, :test do
