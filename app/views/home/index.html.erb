@@ -23,6 +23,9 @@
   <ul class="list-group">
     <% @users.each do |user| %>
     <li class="list-group-item pull-left col-md-4">
+      <div class="icon-area">
+        <%= image_tag(user.image_url, class: "img-circle", width: 60) %>
+      </div>
       <div>
         <% poem = user.poem.order(:updated_at).last %>
         <%= link_to poem.title, poem %>
