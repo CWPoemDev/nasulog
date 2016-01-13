@@ -27,7 +27,7 @@
         <%= image_tag(poem.user.image_url, class: "img-circle", width: 60) %>
       </div>
       <div>
-        <%= link_to poem.title, poem %>
+        <%= link_to poem.title.truncate(20), poem %>
       </div>
       <div>
         <%= poem.user.name %>
