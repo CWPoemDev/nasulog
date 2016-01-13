@@ -21,17 +21,16 @@
     <%= link_to "ポエムを作成する", new_poem_path, class: "btn btn-primary btn-lg" %>
   </p>
   <ul class="list-group">
-    <% @users.each do |user| %>
+    <% @poems.each do |poem| %>
     <li class="list-group-item pull-left col-md-4">
       <div class="icon-area">
-        <%= image_tag(user.image_url, class: "img-circle", width: 60) %>
+        <%= image_tag(poem.user.image_url, class: "img-circle", width: 60) %>
       </div>
       <div>
-        <% poem = user.poem.order(:updated_at).last %>
         <%= link_to poem.title, poem %>
       </div>
       <div>
-        <%= user.name %>
+        <%= poem.user.name %>
       </div>
       <div class="text-right">
         <%= poem.created_at %>
