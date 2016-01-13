@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'mysql2', '~> 0.3.13'
 gem 'redcarpet'
 gem 'rails_12factor'
+gem 'gemoji'
 
 group :development, :test do
   gem 'annotate'

@@ -8,14 +8,12 @@ development:
   database: nasulog_development
   socket: /tmp/mysql.sock
   username: root
-  password: root
 
 test:
   <<: *default
   database: nasulog_test
   socket: /tmp/mysql.sock
   username: root
-  password: root
 
 production:
   <<: *default
