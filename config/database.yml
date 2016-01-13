@@ -8,12 +8,14 @@ development:
   database: nasulog_development
   socket: /tmp/mysql.sock
   username: root
+  password: <%= ENV["DB_PASS"] %>
 
 test:
   <<: *default
   database: nasulog_test
   socket: /tmp/mysql.sock
   username: root
+  password: <%= ENV["DB_PASS"] %>
 
 production:
   <<: *default

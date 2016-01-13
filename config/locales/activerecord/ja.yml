@@ -2,8 +2,12 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      poem: ポエム
 
     attributes:
       user:
         name: ユーザー名
         email: メールアドレス
+      poem:
+        title: タイトル
+        description: 本文
