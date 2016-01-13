@@ -12,7 +12,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :poem, dependent: :destroy
+  has_many :poems, dependent: :destroy
 
   def self.form_omniauth(auth)
     User.create(

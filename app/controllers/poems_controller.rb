@@ -1,5 +1,6 @@
 class PoemsController < ApplicationController
   before_filter :login_required
+  before_action :set_poem, only: [:edit, :update]
   helper_method :is_mine
 
   def index
@@ -15,21 +16,34 @@ class PoemsController < ApplicationController
   end
 
   def create
-    @poem = Poem.create(user_id: @current_user.id ,title: params[:poem][:title], description: params[:poem][:description])
-    redirect_to @poem
+    @poem = current_user.poems.build(poem_params)
+    if @poem.save
+      redirect_to @poem
+    else
+      render :new
+    end
   end
 
   def edit
-    @poem = Poem.find(params[:id])
   end
 
   def update
-    @poem = Poem.find(params[:id])
-    @poem.update(title: params[:poem][:title], description: params[:poem][:description])
-    redirect_to @poem
+    if @poem.update(poem_params)
+      redirect_to @poem
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_poem
+    @poem = current_user.poems.find(params[:id])
+  end
+
+  def poem_params
+    params.require(:poem).permit(:title, :description)
+  end
 
   def is_mine
     @is_mine = Poem.find(params[:id]).user_id == @current_user.id
