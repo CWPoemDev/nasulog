@@ -6,7 +6,7 @@
         <% if current_user.present? %>
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", home_index_path %></li>
-          <li><%= link_to "My Poem", poem_index_path %></li>
+          <li><%= link_to "My Poem", poems_path %></li>
         </ul>
         <% end %>
         <p class="navbar-text navbar-right">

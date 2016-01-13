@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get  '/logout' => 'sessions#destroy'
 
   resources :home
-  resources :poem
+  resources :poems
   resource :user, only: [:edit, :update]
   root to: 'home#index'
 end

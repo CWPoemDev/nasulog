@@ -1,4 +1,4 @@
-class PoemController < ApplicationController
+class PoemsController < ApplicationController
   before_filter :login_required
   helper_method :is_mine
 
