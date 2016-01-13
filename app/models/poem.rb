@@ -12,5 +12,8 @@
 #
 
 class Poem < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, required: true
+  
+  validates :title, presence: true
+  validates :description, presence: true
 end
