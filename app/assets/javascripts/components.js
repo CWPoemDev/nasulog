@@ -1,1 +1,1 @@
-//= require_tree ./components
+window.PoemForm = require('./components/PoemForm').default

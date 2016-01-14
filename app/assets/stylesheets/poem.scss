@@ -11,3 +11,18 @@
   width: 20px;
   height: 20px;
 }
+
+.poem-preview{
+  padding-bottom: 0px;
+  height: 360px;
+  overflow: scroll;
+  border-left: 1px solid #ddd;
+  .page-header {
+    margin-top: 10px;
+  }
+}
+
+.poem-submit{
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
