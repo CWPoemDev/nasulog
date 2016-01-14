@@ -67,3 +67,6 @@ bower.json
 
 # dotenvの設定ファイル
 .env
+
+# node
+node_modules/
