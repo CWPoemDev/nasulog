@@ -32,6 +32,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec'
+  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
 end
