@@ -5,6 +5,9 @@ class CreateReadPoems < ActiveRecord::Migration
       t.integer :user_id
 
       t.timestamps null: false
+
+      t.index :poem_id
+      t.index :user_id
     end
   end
 end
