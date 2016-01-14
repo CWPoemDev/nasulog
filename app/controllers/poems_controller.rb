@@ -19,6 +19,7 @@ class PoemsController < ApplicationController
   def create
     @poem = current_user.poems.build(poem_params)
     if @poem.save
+      notify_to_slack
       redirect_to @poem
     else
       render :new
@@ -48,5 +49,19 @@ class PoemsController < ApplicationController
 
   def is_mine
     @is_mine = Poem.find(params[:id]).user_id == @current_user.id
+  end
+
+  def notify_to_slack
+    text = <<-EOC
+------------------------
+新しいポエムが投稿されました
+
+▼URL
+#{url_for @poem}
+▼Author
+#{current_user.name}
+    EOC
+
+    Slack.chat_postMessage text: text, username: "PoemMaster", channel: ENV['SLACK_CHANNEL']
   end
 end

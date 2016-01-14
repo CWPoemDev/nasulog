@@ -24,6 +24,7 @@ gem 'mysql2', '~> 0.3.13'
 gem 'redcarpet'
 gem 'rails_12factor'
 gem 'gemoji'
+gem 'slack-api'
 
 group :development, :test do
   gem 'annotate'
