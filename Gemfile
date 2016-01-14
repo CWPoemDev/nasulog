@@ -25,6 +25,7 @@ gem 'redcarpet'
 gem 'rails_12factor'
 gem 'gemoji'
 gem 'slack-api'
+gem 'browserify-rails'
 
 group :development, :test do
   gem 'annotate'
