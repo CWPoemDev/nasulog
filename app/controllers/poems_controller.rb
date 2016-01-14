@@ -9,6 +9,7 @@ class PoemsController < ApplicationController
 
   def show
     @poem = Poem.find(params[:id])
+    @read_poems = ReadPoem.where(poem_id: params[:id])
   end
 
   def new

@@ -7,6 +7,13 @@
   </p>
 </div>
 <div>
+  <%= link_to "読んだよ", read_poems_path(@poem), method: :post, action: :create, class: "btn btn-primary"%>
+  <% @read_poems.each do |read_poem| %>
+    <span><%= link_to image_tag(read_poem.user.image_url, class: "img-circle", width: 35 ),
+              read_poem_path(read_poem), method: :delete, action: :destroy %></span>
+  <% end %>
+</div>
+<div>
   <ul class="nav nav-pills">
     <li role="presentation"><%= link_to "ポエムを編集する", edit_poem_path(@poem) if is_mine %></li>
     <li role="presentation"><%= link_to "自分のポエム一覧に戻る", poems_path if is_mine %></li>
