@@ -26,10 +26,8 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "browserify-incremental": "^3.0.1",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "react-redux": "^4.0.0",
-    "redux": "^3.0.4",
-    "redux-thunk": "^1.0.0"
+    "markdown-it": "^5.1.0",
+    "markdown-it-checkbox": "^1.1.0",
+    "markdown-it-emoji": "^1.1.0"
   }
 }
