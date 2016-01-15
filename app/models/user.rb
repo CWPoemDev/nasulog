@@ -12,6 +12,7 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :read_poems, dependent: :destroy
   has_many :poems, dependent: :destroy
 
   def my_poem?(poem)

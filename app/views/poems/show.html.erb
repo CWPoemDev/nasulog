@@ -7,10 +7,10 @@
   </p>
 </div>
 <div>
-  <%= link_to "読んだよ", read_poems_path(@poem), method: :post, action: :create, class: "btn btn-primary"%>
+  <%= link_to "読んだよ", poem_read_poems_path(@poem), method: :post, class: "btn btn-primary"%>
   <% @read_poems.each do |read_poem| %>
     <span><%= link_to image_tag(read_poem.user.image_url, class: "img-circle", width: 35 ),
-              read_poem_path(read_poem), method: :delete, action: :destroy %></span>
+              read_poem_path(read_poem), method: :delete %></span>
   <% end %>
 </div>
 <div>
