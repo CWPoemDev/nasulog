@@ -20,7 +20,7 @@ RSpec.describe Poem, type: :model do
 
   describe '#my_poem?' do
     let(:poem) { create(:poem) }
-    subject { user.my_poem?(poem)}
+    subject { user.my_poem?(poem) }
     context 'when the poem is user poem' do
       let(:user) { poem.user }
       it { is_expected.to eq true }

@@ -59,5 +59,4 @@ class PoemsController < ApplicationController
 
     Slack.chat_postMessage text: text, username: "PoemMaster", channel: ENV['SLACK_CHANNEL']
   end
-
 end
