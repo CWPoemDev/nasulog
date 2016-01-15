@@ -17,4 +17,17 @@ RSpec.describe Poem, type: :model do
       it { is_expected.to be_valid }
     end
   end
+
+  describe '#my_poem?' do
+    let(:poem) { create(:poem) }
+    subject { user.my_poem?(poem)}
+    context 'when the poem is user poem' do
+      let(:user) { poem.user }
+      it { is_expected.to eq true }
+    end
+    context 'when the poem is not user poem' do
+      let(:user) { create(:user) }
+      it { is_expected.to eq false }
+    end
+  end
 end
