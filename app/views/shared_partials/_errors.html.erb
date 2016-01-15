@@ -1,0 +1,9 @@
+<% if errors.any? %>
+  <div class="alert alert-warning">
+    <ul class="list-unstyled">
+      <% errors.full_messages.uniq.each do |message| %>
+        <li><strong><i class="fa fa-exclamation-triangle"></i> <%= (local_assigns.has_key?(:html_safe) && html_safe) ? message.html_safe : message %></strong></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
