@@ -1,7 +1,5 @@
 <%= simple_form_for poem do |f| %>
   <%= react_component 'PoemForm', { title: poem.title.to_s, description: poem.description.to_s } %>
-  <div class="row text-right">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 

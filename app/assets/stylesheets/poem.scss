@@ -18,11 +18,20 @@
   overflow: scroll;
   border-left: 1px solid #ddd;
   .page-header {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 }
 
 .poem-submit{
   padding-top: 15px;
   border-top: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .poem-preview {
+    display: none;
+  }
+  .poem-form {
+    margin: 15px;
+  }
 }

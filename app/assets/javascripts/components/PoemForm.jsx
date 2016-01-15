@@ -21,26 +21,30 @@ export default class PoemForm extends React.Component {
 
   render () {
     return (
-      <div className="row panel panel-default">
-        <div className="col-sm-6 panel-body">
-          <div className="form-group string required poem_title">
-            <label className="string required control-label" htmlFor="poem_title">
-              <abbr title="required">*</abbr> タイトル</label>
-            <input className="string required form-control" onChange={this.onChange.bind(this)}
-              id="title" type="text" name="poem[title]" value={this.state.title}/>
-          </div>
-          <div className="form-group text required poem_description">
-            <label className="text required control-label" htmlFor="poem_description">
-              <abbr title="required">*</abbr> 本文</label>
-            <textarea className="text required form-control" rows="10" onChange={this.onChange.bind(this)}
-              id="description" name="poem[description]" value={this.state.description}></textarea>
+      <div className="row">
+        <div className="col-sm-6 panel panel-default poem-form">
+          <div className="panel-body">
+            <div className="form-group string required poem_title">
+              <label className="string required control-label" htmlFor="poem_title">
+                <abbr title="required">*</abbr> タイトル</label>
+              <input className="string required form-control" onChange={this.onChange.bind(this)}
+                id="title" type="text" name="poem[title]" value={this.state.title}/>
+            </div>
+            <div className="form-group text required poem_description">
+              <label className="text required control-label" htmlFor="poem_description">
+                <abbr title="required">*</abbr> 本文</label>
+              <textarea className="text required form-control" rows="10" onChange={this.onChange.bind(this)}
+                id="description" name="poem[description]" value={this.state.description}></textarea>
+            </div>
           </div>
         </div>
-        <div className="col-sm-6 panel-body poem-preview">
-          <div className="page-header">
-            <h3>{this.state.title}</h3>
+        <div className="col-sm-6 panel panel-default poem-preview">
+          <div className="panel-body">
+            <div className="page-header">
+              <h3>{this.state.title}</h3>
+            </div>
+            <div className="poem-area" dangerouslySetInnerHTML={this.rawMarkup()} />
           </div>
-          <div className="poem-area" dangerouslySetInnerHTML={this.rawMarkup()} />
         </div>
       </div>
     );
