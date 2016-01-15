@@ -27,5 +27,8 @@ module Nasulog
 
     config.assets.paths << Emoji.images_path
     config.assets.precompile << "emoji/**/*.png"
+
+    config.browserify_rails.commandline_options = '-t babelify --extension=".jsx"'
+    config.browserify_rails.source_map_environments << "development"
   end
 end
