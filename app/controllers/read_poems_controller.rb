@@ -7,7 +7,7 @@ class ReadPoemsController < ApplicationController
   end
 
   def destroy
-    ReadPoem.destroy(params[:id])
+    current_user.read_poems.destroy(params[:id])
     redirect_to :back
   end
 end
