@@ -15,6 +15,6 @@
 #
 
 class ReadPoem < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :poems
+  belongs_to :user, required: true
+  belongs_to :poem, required: true
 end

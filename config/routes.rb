@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get  '/logout' => 'sessions#destroy'
 
   resources :home
-  resources :poems
-  resources :read_poems, only: [:create, :destroy]
+  resources :poems, shallow: true do
+    resources :read_poems, only: [:create, :destroy]
+  end
   resource :user, only: [:edit, :update]
   root to: 'home#index'
 end

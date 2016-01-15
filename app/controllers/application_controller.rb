@@ -7,9 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def login_required
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
+    redirect_to root_path, notice: 'ログインしてください' unless current_user
   end
 
   def current_user
