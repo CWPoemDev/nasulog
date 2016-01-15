@@ -14,6 +14,10 @@
 class User < ActiveRecord::Base
   has_many :poems, dependent: :destroy
 
+  def my_poem?(poem)
+    poems.include?(poem)
+  end
+
   def self.form_omniauth(auth)
     User.create(
       google_uid: auth[:uid],
