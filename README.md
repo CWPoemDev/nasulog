@@ -31,6 +31,7 @@ nasum
 
 * Ruby (2.3.0)
 * MySQL
+* nodejs
 * v8
 * Google のトークン
 
