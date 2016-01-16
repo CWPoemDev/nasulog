@@ -24,8 +24,8 @@
 <div class="row">
   <div class="col-xs-6 col-md-offset-3">
     <ul class="nav nav-pills">
-      <li role="presentation"><%= link_to_if current_user.my_poem?(@poem), "ポエムを編集する", edit_poem_path(@poem) %></li>
-      <li role="presentation"><%= link_to_if current_user.my_poem?(@poem), "自分のポエム一覧に戻る", poems_path %></li>
+      <li role="presentation"><%= link_to_if( current_user.my_poem?(@poem), "ポエムを編集する", edit_poem_path(@poem)){} %></li>
+      <li role="presentation"><%= link_to_if( current_user.my_poem?(@poem), "自分のポエム一覧に戻る", poems_path){} %></li>
       <li role="presentation"><%= link_to "みんなのポエム一覧に戻る", home_index_path%></li>
     </ul>
   </div>
