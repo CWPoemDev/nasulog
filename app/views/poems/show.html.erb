@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
     <div class="panel-body">
       <div class="page-header">
         <h1><%= @poem.title %></h1>
@@ -13,7 +13,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
     <div class="panel-body">
       <div class="media-left">
         <%= image_tag @poem.icon_url, class: "img-circle", width: 40 %>
@@ -30,7 +30,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
     <%= link_to "読んだよ", poem_read_poems_path(@poem), method: :post, class: "btn btn-primary"%>
     <% @read_poems.each do |read_poem| %>
       <span><%= link_to image_tag(read_poem.icon_url, class: "img-circle", width: 35 ),
@@ -39,7 +39,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
     <ul class="nav nav-pills">
       <li role="presentation"><%= link_to_if( current_user.my_poem?(@poem), "ポエムを編集する", edit_poem_path(@poem)){} %></li>
       <li role="presentation"><%= link_to_if( current_user.my_poem?(@poem), "自分のポエム一覧に戻る", poems_path){} %></li>
