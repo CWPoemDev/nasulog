@@ -51,6 +51,9 @@ class PoemsController < ApplicationController
 ------------------------
 新しいポエムが投稿されました
 
+▼Title
+#{@poem.title}
+
 ▼URL
 #{url_for @poem}
 ▼Author
