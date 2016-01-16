@@ -23,23 +23,25 @@
   <ul class="list-group">
     <% @poems.each do |poem| %>
       <li class="list-group-item col-md-4">
-        <div class="medila">
-          <div class="media-left">
-            <%= image_tag(poem.user.image_url, class: "img-circle", width: 60) %>
+        <%= link_to poem do %>
+          <div class="medila">
+            <div class="media-left">
+              <%= image_tag(poem.user.image_url, class: "img-circle", width: 60) %>
+            </div>
+            <div class="media-body">
+              <div class="media-heading">
+                <span class="link-text"><%= poem.title.truncate(15) %></span>
+              </div>
+              <div class="media-content">
+                <%= poem.user.name %>
+              </div>
+              <div class="text-right">
+                <%= poem.created_at %>
+              </div>
+            </div>
           </div>
-          <div class="media-body">
-            <div class="media-heading">
-              <%= link_to poem.title.truncate(15), poem %>
-            </div>
-            <div class="media-content">
-              <%= poem.user.name %>
-            </div>
-            <div class="text-right">
-              <%= poem.created_at %>
-            </div>
-          </div>
-      </div>
-    </li>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% end %>

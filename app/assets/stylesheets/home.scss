@@ -1,8 +1,32 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-variables.scss";
 
 div.icon-area {
   float: left;
   margin-right: 20px;
+}
+
+.list-group-item > a {
+  margin: -10px -15px; // 元の.list-group-itemのpaddingを変えないため
+  padding: 10px 15px;
+  display: block;
+  color: inherit;
+
+  &:hover, &:focus {
+    color: inherit;
+    text-decoration: none;
+    background-color: lighten($brand-primary, 50%);
+  }
+
+  .link-text {
+    color: $brand-primary;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: $link-hover-color;
+      text-decoration: underline;
+    }
+  }
 }
