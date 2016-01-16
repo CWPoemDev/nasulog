@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
     poems.include?(poem)
   end
 
+  def my_read_poem?(read_poem)
+    read_poems.include?(read_poem)
+  end
+
   def self.form_omniauth(auth)
     User.create(
       google_uid: auth[:uid],
