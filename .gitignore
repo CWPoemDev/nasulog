@@ -70,3 +70,6 @@ bower.json
 
 # node
 node_modules/
+
+# ide設定
+.idea/
