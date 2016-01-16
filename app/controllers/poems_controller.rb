@@ -60,6 +60,8 @@ class PoemsController < ApplicationController
 #{current_user.name}
     EOC
 
-    Slack.chat_postMessage text: text, username: "PoemMaster", channel: ENV['SLACK_CHANNEL']
+    if ENV['SLACK_CHANNEL'].present?
+      Slack.chat_postMessage text: text, username: "PoemMaster", channel: ENV['SLACK_CHANNEL']
+    end
   end
 end
