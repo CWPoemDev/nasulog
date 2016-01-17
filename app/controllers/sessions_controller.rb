@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
     if auth.info['email'].split('@')[1] == ENV['RESTRICT_DOMAIN']
       user = User.find_by(google_uid: auth[:uid])
       user = User.form_omniauth(auth) unless user
+
+      icon_url = auth[:info][:image]
+      user.update(icon_url: icon_url)
+
       session[:user_id] = user.id
       redirect_to root_path
     else
