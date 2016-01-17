@@ -1,7 +1,8 @@
 import md from 'markdown-it'
 import mdEmoji from 'markdown-it-emoji'
 import mdCheckBox from 'markdown-it-checkbox'
-const markdown = md().use(mdEmoji).use(mdCheckBox)
+const markdown_extension = { linkify: true, breaks: true }
+const markdown = md(markdown_extension).use(mdEmoji).use(mdCheckBox)
 
 export default class PoemForm extends React.Component {
   constructor(props) {
