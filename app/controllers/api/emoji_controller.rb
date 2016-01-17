@@ -1,13 +1,13 @@
 # NasuLog API
 module Api
-# this controller returns emoji infomation
-# ex.
-# [
-#   {
-#     "value": "octocat",
-#     "url": "/assets/emoji/octocat-<digest>.png"
-#   }
-# ]
+  # this controller returns emoji infomation
+  # ex.
+  # [
+  #   {
+  #     "value": "octocat",
+  #     "url": "/assets/emoji/octocat-<digest>.png"
+  #   }
+  # ]
   class EmojiController < ApplicationController
     before_filter :login_required
     def index
