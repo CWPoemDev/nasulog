@@ -1,6 +1,10 @@
 <%= render partial: 'shared_partials/errors', object: poem.errors %>
 <%= simple_form_for poem do |f| %>
-  <%= react_component 'PoemForm', { title: poem.title.to_s, description: poem.description.to_s } %>
+  <%= react_component 'PoemForm', {
+    title: poem.title.to_s,
+    description: poem.description.to_s,
+    description_html: markdown(poem.description)
+  } %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
