@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       user = User.form_omniauth(auth) unless user
 
       icon_url = auth[:info][:image]
-      user.update_attributes(icon_url: icon_url) if user.icon_url != icon_url
+      user.update(icon_url: icon_url)
 
       session[:user_id] = user.id
       redirect_to root_path
