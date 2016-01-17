@@ -2,9 +2,20 @@ module PoemHelper
   # TODO: 他の箇所でも使うようになったら(コメントとか)
   #       ここじゃない場所に移した方が良さそう
   def markdown(text)
-    renderer = Redcarpet::Render::HTML.new
-    extensions = {}
-    markdown = Redcarpet::Markdown.new(renderer, extensions)
+    renderer_extensions = {
+      hard_wrap: true
+    }
+    renderer = Redcarpet::Render::HTML.new(renderer_extensions)
+    markdown_extensions = {
+      autolink: true,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      tables: true,
+      lax_spacig: true,
+      strikethrough: true,
+      footnotes: true,
+    }
+    markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)
     markdown.render(emojify(text)).html_safe
   end
 
