@@ -25,5 +25,4 @@ module PoemHelper
   def emoji_path(emoji)
     image_path("emoji/#{emoji.image_filename}")
   end
-
 end
