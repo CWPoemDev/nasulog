@@ -14,5 +14,5 @@ class ReadPoem < ActiveRecord::Base
   belongs_to :poem, required: true
 
   delegate :icon_url, to: :user
-  delegate :name, to: :user, prefix: :print_user
+  delegate :name, to: :user, prefix: :user
 end
