@@ -10,6 +10,37 @@ export default class PoemForm extends React.Component {
     this.state = {description: props.description, title: props.title};
   }
 
+  componentDidMount(){
+    require('jquery-textcomplete')
+    $(this.refs.textarea).textcomplete([
+      { // emoji strategy
+        match: /\B:([\-+\w]*)$/,
+        search(term, callback) {
+          return $.getJSON("/api/emoji", {
+            query: term
+          }).done(function(data) {
+            return callback(data)
+          }).fail(function() {
+            return callback([])
+          })
+        },
+        template(data) {
+          return `<img src="${data.url}" class="emoji"></img> ${data.value}`;
+        },
+        replace(data) {
+          return `:${data.value}:`;
+        },
+        index: 1
+      }
+    ], {
+      onKeydown(e, commands) {
+        if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
+          return commands.KEY_ENTER;
+        }
+      }
+    })
+  }
+
   onChange(event) {
     let attr = {}
     attr[event.target.id] = event.target.value
@@ -34,8 +65,10 @@ export default class PoemForm extends React.Component {
             <div className="form-group text required poem_description">
               <label className="text required control-label" htmlFor="poem_description">
                 <abbr title="required">*</abbr> 本文</label>
-              <textarea className="text required form-control" rows="10" onChange={this.onChange.bind(this)}
-                id="description" name="poem[description]" value={this.state.description}></textarea>
+              <textarea className="text required form-control"
+                rows="10" onChange={this.onChange.bind(this)}
+                id="description" name="poem[description]"
+                value={this.state.description} ref="textarea"></textarea>
             </div>
           </div>
         </div>

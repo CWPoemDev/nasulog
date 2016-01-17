@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   end
   resource :user, only: [:edit, :update]
   root to: 'home#index'
+
+  namespace :api do
+    resources :emoji, only: [:index]
+  end
 end
