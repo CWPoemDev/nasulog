@@ -13,7 +13,7 @@ module PoemHelper
       tables: true,
       lax_spacig: true,
       strikethrough: true,
-      footnotes: true,
+      footnotes: true
     }
     markdown = Redcarpet::Markdown.new(renderer, markdown_extensions)
     markdown.render(emojify(text)).html_safe
