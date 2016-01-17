@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :emoji, only: [:index]
+    resources :markdown_previews, only: [:create]
   end
 end
