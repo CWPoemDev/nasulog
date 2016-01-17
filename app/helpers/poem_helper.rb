@@ -15,10 +15,15 @@ module PoemHelper
       emoji_alias = Regexp.last_match(1)
       emoji = Emoji.find_by_alias(emoji_alias)
       if emoji
-        %(<img alt="#{emoji_alias}" src="#{image_path("emoji/#{emoji.image_filename}")}" class="emoji" />)
+        %(<img alt="#{emoji_alias}" src="#{emoji_path(emoji)}" class="emoji" />)
       else
         match
       end
     end.html_safe
   end
+
+  def emoji_path(emoji)
+    image_path("emoji/#{emoji.image_filename}")
+  end
+
 end
