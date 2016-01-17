@@ -16,7 +16,11 @@ class User < ActiveRecord::Base
   has_many :poems, dependent: :destroy
 
   def my_poem?(poem)
-    poems.include?(poem)
+    self == poem.user
+  end
+
+  def my_read_poem?(read_poem)
+    self == read_poem.user
   end
 
   def self.form_omniauth(auth)
