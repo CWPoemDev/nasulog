@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @poems = Poem.all.order(id: :desc).includes(:user)
     respond_to do |format|
       format.html
-      format.json { render template: "poems/index" }
+      format.json { render 'poems/index' }
     end
   end
 end
