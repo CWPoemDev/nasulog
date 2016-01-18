@@ -21,7 +21,7 @@
           <% if current_user.blank? %>
             <a href="/auth/google_oauth2">ログイン/新規登録</a>
           <% else %>
-            <%= link_to current_user.name, edit_user_path%>
+            <%= link_to current_user.name, edit_user_path%> | <%= link_to 'ログアウト', logout_path %>
           <% end %>
         </p>
       </div>
