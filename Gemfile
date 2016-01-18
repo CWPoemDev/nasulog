@@ -40,4 +40,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
+  gem 'rubocop', require: false
 end
