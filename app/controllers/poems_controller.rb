@@ -16,9 +16,8 @@ class PoemsController < ApplicationController
   end
 
   def create
-    @poem = current_user.poems.build(poem_params)
-    if @poem.save
-      notify_to_slack
+    @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
+    if @poem.valid?
       redirect_to @poem
     else
       render :new
@@ -44,24 +43,5 @@ class PoemsController < ApplicationController
 
   def poem_params
     params.require(:poem).permit(:title, :description)
-  end
-
-  def notify_to_slack
-    text = <<-EOC
-------------------------
-新しいポエムが投稿されました
-
-▼Title
-#{@poem.title}
-
-▼URL
-#{url_for @poem}
-▼Author
-#{current_user.name}
-    EOC
-
-    if ENV['SLACK_CHANNEL'].present?
-      Slack.chat_postMessage text: text, username: "PoemMaster", channel: ENV['SLACK_CHANNEL']
-    end
   end
 end
