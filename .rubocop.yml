@@ -13,3 +13,9 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'test/**/*'
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

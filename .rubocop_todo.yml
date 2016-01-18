@@ -36,38 +36,11 @@ Rails/ActionFilter:
     - 'app/controllers/poems_controller.rb'
     - 'app/controllers/read_poems_controller.rb'
 
-# Offense count: 4
-Style/AsciiComments:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/poem_helper.rb'
-    - 'spec/controllers/api/emoji_controller_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
-
-# Offense count: 14
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/home_controller.rb'
-    - 'app/controllers/poems_controller.rb'
-    - 'app/controllers/read_poems_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/bootstrap_flash_helper.rb'
-    - 'app/helpers/home_helper.rb'
-    - 'app/helpers/poem_helper.rb'
-    - 'app/helpers/read_poem_helper.rb'
-    - 'app/helpers/session_helper.rb'
-    - 'app/models/poem.rb'
-    - 'app/models/read_poem.rb'
-    - 'app/models/user.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
