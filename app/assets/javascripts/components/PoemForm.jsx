@@ -10,7 +10,7 @@ export default class PoemForm extends React.Component {
     // reactではevent objectが毎回clearされるので
     // constructorでdebounce化させておく必要があるらしい
     // http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479
-    this.createPreview = _.debounce(this.createPreview, 500);
+    this.createPreview = _.debounce(this.createPreview, 300);
   }
 
   componentDidMount(){
