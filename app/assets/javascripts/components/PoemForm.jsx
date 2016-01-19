@@ -1,3 +1,4 @@
+const _ = require('underscore')
 export default class PoemForm extends React.Component {
   constructor(props) {
     super(props);
@@ -6,6 +7,10 @@ export default class PoemForm extends React.Component {
       description: props.description,
       description_html: props.description_html
     };
+    // reactではevent objectが毎回clearされるので
+    // constructorでdebounce化させておく必要があるらしい
+    // http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479
+    this.createPreview = _.debounce(this.createPreview, 500);
   }
 
   componentDidMount(){
@@ -52,7 +57,7 @@ export default class PoemForm extends React.Component {
 
   onDescriptionChange(event) {
     this.setState({ description: event.target.value })
-    setTimeout( ()=>{ this.createPreview() }, 1000 )
+    this.createPreview()
   }
 
   rawMarkup() {
