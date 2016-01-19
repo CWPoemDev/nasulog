@@ -1,3 +1,2 @@
-window.$ = require('jquery')
-window.jQuery = $
+window.$ = window.jQuery = require('jquery')
 window.PoemForm = require('./components/PoemForm').default

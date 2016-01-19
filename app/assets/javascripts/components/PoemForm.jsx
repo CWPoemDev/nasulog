@@ -35,13 +35,7 @@ export default class PoemForm extends React.Component {
         },
         index: 1
       }
-    ], {
-      onKeydown(e, commands) {
-        if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
-          return commands.KEY_ENTER;
-        }
-      }
-    })
+    ])
     .on({
       // 候補から選択してもonChangeイベントが発火しないので、
       // 強制的にonChangeさせる
