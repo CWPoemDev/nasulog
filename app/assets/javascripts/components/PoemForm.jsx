@@ -1,13 +1,16 @@
-import md from 'markdown-it'
-import mdEmoji from 'markdown-it-emoji'
-import mdCheckBox from 'markdown-it-checkbox'
-const markdown_extension = { linkify: true, breaks: true }
-const markdown = md(markdown_extension).use(mdEmoji).use(mdCheckBox)
-
+const _ = require('underscore')
 export default class PoemForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {description: props.description, title: props.title};
+    this.state = {
+      title: props.title,
+      description: props.description,
+      description_html: props.description_html
+    };
+    // reactではevent objectが毎回clearされるので
+    // constructorでdebounce化させておく必要があるらしい
+    // http://stackoverflow.com/questions/23123138/perform-debounce-in-react-js/24679479#24679479
+    this.createPreview = _.debounce(this.createPreview, 300);
   }
 
   componentDidMount(){
@@ -32,23 +35,37 @@ export default class PoemForm extends React.Component {
         },
         index: 1
       }
-    ], {
-      onKeydown(e, commands) {
-        if (e.ctrlKey && e.keyCode === 74) { // CTRL-J
-          return commands.KEY_ENTER;
-        }
+    ])
+    .on({
+      // 候補から選択してもonChangeイベントが発火しないので、
+      // 強制的にonChangeさせる
+      'textComplete:select': (e, value, strategy) => {
+        this.onDescriptionChange(e)
       }
     })
   }
 
-  onChange(event) {
-    let attr = {}
-    attr[event.target.id] = event.target.value
-    this.setState(attr)
+  onTitleChange(event) {
+    this.setState({ title: event.target.value })
+  }
+
+  onDescriptionChange(event) {
+    this.setState({ description: event.target.value })
+    this.createPreview()
   }
 
   rawMarkup() {
-    return { __html: markdown.render(this.state.description) };
+    return { __html: this.state.description_html };
+  }
+
+  createPreview() {
+    $.post(
+      '/api/markdown_previews',
+      { text: this.state.description },
+      'html'
+    ).done( (data) => {
+      this.setState({ description_html: data })
+    })
   }
 
   render () {
@@ -59,14 +76,14 @@ export default class PoemForm extends React.Component {
             <div className="form-group string required poem_title">
               <label className="string required control-label" htmlFor="poem_title">
                 <abbr title="required">*</abbr> タイトル</label>
-              <input className="string required form-control" onChange={this.onChange.bind(this)}
+              <input className="string required form-control" onChange={this.onTitleChange.bind(this)}
                 id="title" type="text" name="poem[title]" value={this.state.title}/>
             </div>
             <div className="form-group text required poem_description">
               <label className="text required control-label" htmlFor="poem_description">
                 <abbr title="required">*</abbr> 本文</label>
               <textarea className="text required form-control"
-                rows="10" onChange={this.onChange.bind(this)}
+                rows="10" onChange={this.onDescriptionChange.bind(this)}
                 id="description" name="poem[description]"
                 value={this.state.description} ref="textarea"></textarea>
             </div>
@@ -87,5 +104,6 @@ export default class PoemForm extends React.Component {
 
 PoemForm.propTypes = {
   title: React.PropTypes.string,
-  description: React.PropTypes.string
+  description: React.PropTypes.string,
+  description_html: React.PropTypes.string
 };
