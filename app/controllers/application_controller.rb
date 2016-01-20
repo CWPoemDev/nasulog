@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     nil
   end
+
+  def json_request?
+    request.format.json?
+  end
 end

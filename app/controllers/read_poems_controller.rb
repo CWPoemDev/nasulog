@@ -19,10 +19,4 @@ class ReadPoemsController < ApplicationController
       redirect_to :back
     end
   end
-
-  private
-  
-  def json_request?
-    request.format.json?
-  end
 end
