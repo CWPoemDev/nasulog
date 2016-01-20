@@ -21,27 +21,34 @@
   <%= link_to "ポエムを作成する", new_poem_path, class: "btn btn-primary btn-lg" %>
   </p>
   <ul class="list-group">
-    <% @poems.each do |poem| %>
-      <li class="list-group-item col-md-4">
-        <%= link_to poem do %>
-          <div class="medila">
-            <div class="media-left">
-              <%= image_tag(poem.icon_url, class: "img-circle", width: 60) %>
-            </div>
-            <div class="media-body">
-              <div class="media-heading">
-                <span class="link-text"><%= poem.title.truncate(15) %></span>
+    <% @poems.each_slice(3) do |poems| %>
+      <div class="row">
+        <% poems.each do |poem| %>
+          <li class="list-group-item col-md-4">
+            <%= link_to poem do %>
+              <div class="medila">
+                <div class="media-left">
+                  <%= image_tag(poem.icon_url, class: "img-circle", width: 60) %>
+                </div>
+                <div class="media-body">
+                  <div class="media-heading">
+                    <span class="link-text"><%= poem.title.truncate(15) %></span>
+                  </div>
+                  <div class="media-content">
+                    <%= poem.author_name %>
+                  </div>
+                  <div class="text-right">
+                    <%= poem.created_at %>
+                  </div>
+                </div>
               </div>
-              <div class="media-content">
-                <%= poem.author_name %>
-              </div>
-              <div class="text-right">
-                <%= poem.created_at %>
-              </div>
-            </div>
-          </div>
+            <% end %>
+          </li>
         <% end %>
-      </li>
+      </div>
     <% end %>
   </ul>
+  <div class="row text-center">
+    <%= paginate @poems %>
+  </div>
 <% end %>
