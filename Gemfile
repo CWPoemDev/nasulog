@@ -27,6 +27,7 @@ gem 'gemoji'
 gem 'slack-api'
 gem 'browserify-rails'
 gem 'react-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'annotate'
