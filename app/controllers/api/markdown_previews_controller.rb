@@ -6,7 +6,7 @@ module Api
     protect_from_forgery except: :create
 
     def create
-      render html: view_context.markdown(params[:text]).html_safe
+      render html: view_context.markdown(params[:text])
     end
   end
 end
