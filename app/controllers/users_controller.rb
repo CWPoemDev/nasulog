@@ -1,7 +1,11 @@
 # ユーザー情報を編集する
 class UsersController < ApplicationController
   before_action :login_required
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
+
+  def show
+    redirect_to edit_user_path unless json_request?
+  end
 
   def edit
   end
