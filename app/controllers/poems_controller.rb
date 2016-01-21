@@ -4,6 +4,7 @@ class PoemsController < ApplicationController
   skip_before_action :verify_authenticity_token, if: :json_request?
 
   def index
+    redirect_to api_poems_path if json_request?
     @poems = Poem.where(user: current_user).order(created_at: :desc)
   end
 
