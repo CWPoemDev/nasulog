@@ -6,3 +6,4 @@ json.poems @poems do |poem|
   end
   json.created_at poem.created_at
 end
+json.has_more @has_more
