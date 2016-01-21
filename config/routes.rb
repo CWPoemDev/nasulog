@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :home
   resources :poems, shallow: true do
-    resources :read_poems, only: [:create, :destroy]
+    resources :read_poems, only: [:index, :show, :create, :destroy]
   end
   resource :user, only: [:show, :edit, :update]
   root to: 'home#index'
