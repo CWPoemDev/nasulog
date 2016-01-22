@@ -23,7 +23,7 @@
           <%= @poem.author_name %>
         </div>
         <div>
-          <%= @poem.created_at %>
+          <%= l(@poem.created_at, format: :short) %>
         </div>
       </div>
     </div>
