@@ -1,2 +1,5 @@
 ja:
   nasulog: "茄子ログ"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
