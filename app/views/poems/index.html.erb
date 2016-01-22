@@ -12,7 +12,7 @@
           <%= link_to poem.title, poem %>
         </div>
         <div class="col-xs-3">
-          <%= l(@poem.created_at, format: :short) %>
+          <%= l poem.created_at%>
         </div>
       </div>
     </li>
