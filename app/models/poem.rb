@@ -21,4 +21,13 @@ class Poem < ActiveRecord::Base
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, presence: true
+
+  def quote_original_poem
+    if original_poem
+      self.title = "RP: #{original_poem.title}"
+      self.description =
+        original_poem.description.gsub(/^/, '> ').gsub(/\A/, "\r\n\r\n\r\n")
+    end
+  end
+
 end

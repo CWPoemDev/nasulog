@@ -14,6 +14,7 @@ class PoemsController < ApplicationController
 
   def new
     @poem = Poem.new(original_poem_id: params[:poem_id])
+    @poem.quote_original_poem
   end
 
   def create
