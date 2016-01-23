@@ -13,7 +13,7 @@ class PoemsController < ApplicationController
   end
 
   def new
-    @poem = Poem.new
+    @poem = Poem.new(original_poem_id: params[:poem_id])
   end
 
   def create

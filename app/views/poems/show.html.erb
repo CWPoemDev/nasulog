@@ -23,7 +23,7 @@
         <%= l @poem.created_at %>
       </div>
       <div class="media-right text-right">
-        <%= link_to '#' do %>
+        <%= link_to new_poem_path(poem_id: @poem.id) do %>
           <i class="fa fa-retweet fa-2x" data-toggle="tooltip" data-placement="right" title="Repoem"></i>
         <% end %>
       </div>

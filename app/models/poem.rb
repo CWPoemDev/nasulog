@@ -14,6 +14,7 @@
 
 class Poem < ActiveRecord::Base
   belongs_to :user, required: true
+  belongs_to :original_poem, class_name: 'Poem'
 
   delegate :icon_url, to: :user
   delegate :name, to: :user, prefix: :author
