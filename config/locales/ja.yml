@@ -2,7 +2,4 @@ ja:
   nasulog: "茄子ログ"
   time:
     formats:
-      default: "%Y年%m月%d日 %H:%M:%S"
-      short: "%Y年%m月%d日 %H:%M"
-      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
-
+      default: "%Y/%m/%d %H:%M"
