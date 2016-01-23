@@ -15,6 +15,7 @@
 class Poem < ActiveRecord::Base
   belongs_to :user, required: true
   belongs_to :original_poem, class_name: 'Poem'
+  has_many :repoems, class_name: :Poem, foreign_key: :original_poem_id
 
   delegate :icon_url, to: :user
   delegate :name, to: :user, prefix: :author
