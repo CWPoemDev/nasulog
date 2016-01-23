@@ -1,3 +1,18 @@
+<% if poem.repoemed_poem %>
+  <div class='media repoem-link'>
+      <div class='media-left small'>
+        <i class="fa fa-retweet"></i>
+      </div>
+      <div class='media-body small'>
+        「
+        <%= link_to '#' do %>
+          <%= image_tag poem.original_poem.icon_url, class: "img-circle", width: 16 %>
+          <%= poem.original_poem.title %>
+        <% end %>
+        」からリポエムしました
+      </div>
+  </div>
+<% end %>
 <%= render partial: 'shared_partials/errors', object: poem.errors %>
 <%= simple_form_for poem do |f| %>
   <%= react_component 'PoemForm', {
@@ -5,6 +20,6 @@
     description: poem.description.to_s,
     description_html: markdown(poem.description)
   } %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+<%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
