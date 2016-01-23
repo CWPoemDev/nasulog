@@ -1,18 +1,4 @@
-<% if poem.repoemed_poem %>
-  <div class='media repoem-link'>
-      <div class='media-left small'>
-        <i class="fa fa-retweet"></i>
-      </div>
-      <div class='media-body small'>
-        「
-        <%= link_to '#' do %>
-          <%= image_tag poem.original_poem.icon_url, class: "img-circle", width: 16 %>
-          <%= poem.original_poem.title %>
-        <% end %>
-        」からリポエムしました
-      </div>
-  </div>
-<% end %>
+<%= render 'original_poem_link', poem: poem.original_poem %>
 <%= render partial: 'shared_partials/errors', object: poem.errors %>
 <%= simple_form_for poem do |f| %>
   <%= f.input :original_poem_id, as: :hidden %>

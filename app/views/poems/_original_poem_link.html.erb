@@ -1,0 +1,15 @@
+<% if poem %>
+  <div class='media repoem-link'>
+      <div class='media-left small'>
+        <i class="fa fa-retweet"></i>
+      </div>
+      <div class='media-body small'>
+        「
+        <%= link_to poem do %>
+          <%= image_tag poem.icon_url, class: "img-circle", width: 16 %>
+          <%= poem.title %>
+        <% end %>
+        」からリポエムしました
+      </div>
+  </div>
+<% end %>

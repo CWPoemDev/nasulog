@@ -3,6 +3,7 @@
     <div class="panel-body">
       <div class="page-header">
         <h1><%= @poem.title %></h1>
+        <%= render 'original_poem_link', poem: @poem.original_poem %>
       </div>
       <div class="poem-area">
         <p>
