@@ -19,12 +19,13 @@
         <%= image_tag @poem.icon_url, class: "img-circle", width: 40 %>
       </div>
       <div class="media-body">
-        <div>
-          <%= @poem.author_name %>
-        </div>
-        <div>
-          <%= l @poem.created_at %>
-        </div>
+        <%= @poem.author_name %> <br/>
+        <%= l @poem.created_at %>
+      </div>
+      <div class="media-right text-right">
+        <%= link_to '#' do %>
+          <i class="fa fa-retweet fa-2x" data-toggle="tooltip" data-placement="right" title="Repoem"></i>
+        <% end %>
       </div>
     </div>
   </div>
