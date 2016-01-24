@@ -22,7 +22,7 @@ module PoemHelper
   def emojify(content)
     return "" unless content.present?
 
-    h(content).to_str.gsub(/:([\w+-]+):/) do |match|
+    content.to_str.gsub(/:([\w+-]+):/) do |match|
       emoji_alias = Regexp.last_match(1)
       emoji = Emoji.find_by_alias(emoji_alias)
       if emoji
