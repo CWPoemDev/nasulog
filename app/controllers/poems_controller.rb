@@ -4,13 +4,14 @@ class PoemsController < ApplicationController
   skip_before_action :verify_authenticity_token, if: :json_request?
 
   def index
-    redirect_to api_poems_path if json_request?
     @poems = Poem.where(user: current_user).order(created_at: :desc)
+    redirect_to api_poems_path and return if json_request?
   end
 
   def show
     @poem = Poem.find(params[:id])
     @read_poems = ReadPoem.where(poem_id: params[:id])
+    redirect_to api_poem_path(@poem) and return if json_request?
   end
 
   def new

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :emoji, only: [:index]
     resources :markdown_previews, only: [:create]
     resources :home, only: [:index], defaults: { format: :json }
-    resources :poems, only: [:index], defaults: { format: :json }
+    resources :poems, only: [:index, :show], defaults: { format: :json }
+    resource :user, only: [:show], defaults: { format: :json }
   end
 end
