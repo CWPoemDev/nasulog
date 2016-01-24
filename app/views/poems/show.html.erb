@@ -52,7 +52,7 @@
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <% @poem.repoems.each do |repoem| %>
+    <% @repoems.each do |repoem| %>
       <div class="small">
         <%= image_tag repoem.icon_url, class: "img-circle", width: 16 %>
         <%= repoem.author_name %>さんがリポエムしました
