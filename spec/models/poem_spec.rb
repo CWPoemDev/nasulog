@@ -33,8 +33,8 @@ RSpec.describe Poem, type: :model do
 
   describe '#next' do
     before do
-      @poem_current = create(:poem)
-      @poem_next = create(:poem)
+      @poem_current = create(:poem, :one_hour_ago)
+      @poem_next = create(:poem, :now)
     end
 
     subject {
@@ -47,8 +47,8 @@ RSpec.describe Poem, type: :model do
 
   describe '#previous' do
     before do
-      @poem_previous = create(:poem)
-      @poem_current = create(:poem)
+      @poem_previous = create(:poem, :one_hour_ago)
+      @poem_current = create(:poem, :now)
     end
 
     subject {
