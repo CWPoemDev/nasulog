@@ -1,6 +1,6 @@
 class PoemsController < ApplicationController
   before_filter :login_required
-  before_action :set_poem, only: [:edit, :update]
+  before_action :set_poem, only: [:edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, if: :json_request?
 
   def index
@@ -36,6 +36,11 @@ class PoemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @poem.destroy
+    redirect_to poems_path
   end
 
   private
