@@ -1,6 +1,6 @@
 class PoemsController < ApplicationController
   before_filter :login_required
-  before_action :set_poem, only: [:edit, :update]
+  before_action :set_poem, only: [:edit, :update, :destroy]
 
   def index
     @poems = Poem.where(user: current_user).order(created_at: :desc)
