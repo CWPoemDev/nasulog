@@ -44,7 +44,7 @@
     <ul class="nav nav-pills">
       <% if current_user.my_poem?(@poem) then %>
       <li role="presentation"><%= link_to "ポエムを編集する", edit_poem_path(@poem) %></li>
-      <li role="presentation"><%= link_to "ポエムを削除する", poem_path(@poem), method: :delete %></li>
+      <li role="presentation"><%= link_to "ポエムを削除する", poem_path(@poem), method: :delete, data: { confirm: "本当に削除しますか？" }%></li>
       <li role="presentation"><%= link_to "自分のポエム一覧に戻る", poems_path %></li>
       <% end %>
       <li role="presentation"><%= link_to "みんなのポエム一覧に戻る", home_index_path%></li>
