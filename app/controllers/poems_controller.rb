@@ -35,6 +35,11 @@ class PoemsController < ApplicationController
     end
   end
 
+  def destroy
+    @poem.destroy
+    redirect_to poems_path
+  end
+
   private
 
   def set_poem

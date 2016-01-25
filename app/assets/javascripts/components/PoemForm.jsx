@@ -1,3 +1,4 @@
+import $ from 'jquery'
 const _ = require('underscore')
 export default class PoemForm extends React.Component {
   constructor(props) {
