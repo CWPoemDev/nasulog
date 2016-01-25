@@ -1,5 +1,5 @@
 class Api::PoemsController < Api::ApplicationController
-  before_action :set_poem, only: [:show, :update]
+  before_action :set_poem, only: [:show, :update, :destroy]
 
   def index
     @poems,@has_more = Poem.where(user: current_user).includes(:user).extending(LoadMorePagenation).load_more(:id, params[:last_id], params[:count])
@@ -24,6 +24,11 @@ class Api::PoemsController < Api::ApplicationController
     else
       render :json ,{ status: :error }, status: :bad_request
     end
+  end
+
+  def destroy
+    @poem.destroy
+    render nothing: true, status: :no_content
   end
 
   private
