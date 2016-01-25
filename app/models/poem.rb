@@ -4,11 +4,12 @@
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
-#  title       :string(255)
-#  description :text(65535)
+#  title       :string
+#  description :text
 #  show        :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  deleted_at  :datetime
 #
 
 class Poem < ActiveRecord::Base
@@ -19,4 +20,17 @@ class Poem < ActiveRecord::Base
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, presence: true
+
+  before_destroy :mark_as_deleted
+  default_scope -> { where(deleted_at:nil) }
+
+  def destroy
+    mark_as_deleted
+  end
+
+  private
+
+  def mark_as_deleted
+    self.update_attribute(:deleted_at ,Time.current.to_time)
+  end
 end
