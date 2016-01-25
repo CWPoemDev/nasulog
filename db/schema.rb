@@ -11,35 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125032055) do
+ActiveRecord::Schema.define(version: 20160116015625) do
 
   create_table "poems", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "description"
+    t.integer  "user_id",     limit: 4
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
     t.boolean  "show"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.datetime "deleted_at"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "read_poems", force: :cascade do |t|
-    t.integer  "poem_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "poem_id",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "read_poems", ["poem_id"], name: "index_read_poems_on_poem_id"
-  add_index "read_poems", ["user_id"], name: "index_read_poems_on_user_id"
+  add_index "read_poems", ["poem_id"], name: "index_read_poems_on_poem_id", using: :btree
+  add_index "read_poems", ["user_id"], name: "index_read_poems_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.text     "google_uid"
-    t.text     "icon_url"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.text     "google_uid", limit: 65535
+    t.text     "icon_url",   limit: 65535
+    t.string   "email",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
