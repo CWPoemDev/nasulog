@@ -21,4 +21,12 @@ class Poem < ActiveRecord::Base
   validates :description, presence: true
 
   has_many :read_poems, dependent: :destroy
+
+  def previous
+    Poem.where("created_at < ?", self.created_at).order("id DESC").first
+  end
+
+  def next
+    Poem.where("created_at > ?", self.created_at).order("id ASC").first
+  end
 end

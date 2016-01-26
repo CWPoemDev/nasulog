@@ -30,4 +30,32 @@ RSpec.describe Poem, type: :model do
       it { is_expected.to eq false }
     end
   end
+
+  describe '#next' do
+    before do
+      @poem_current = create(:poem, :one_hour_ago)
+      @poem_next = create(:poem, :now)
+    end
+
+    subject {
+      @poem_current.next
+    }
+    context 'present next poem' do
+      it { is_expected.to eq @poem_next }
+    end
+  end
+
+  describe '#previous' do
+    before do
+      @poem_previous = create(:poem, :one_hour_ago)
+      @poem_current = create(:poem, :now)
+    end
+
+    subject {
+      @poem_current.previous
+    }
+    context 'present next poem' do
+      it { is_expected.to eq @poem_previous }
+    end
+  end
 end

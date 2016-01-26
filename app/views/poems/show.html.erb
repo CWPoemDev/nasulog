@@ -39,6 +39,24 @@
     <% end %>
   </div>
 </div>
+<div class="row poem-pager">
+  <div class="col-md-6 col-md-offset-3 next">
+    <nav>
+      <ul class="pager">
+        <% if @poem.next %>
+          <li class="previous">
+            <%= link_to @poem.next.title, @poem.next %>
+          </li>
+        <% end %>
+        <% if @poem.previous %>
+          <li class="next">
+            <%= link_to @poem.previous.title, @poem.previous %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <ul class="nav nav-pills">
