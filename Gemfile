@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.5'
+gem 'rails', '5.0.0.beta1.1', github: 'rails/rails'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
