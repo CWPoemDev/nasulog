@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    redirect_to edit_user_path unless json_request?
+    redirect_to edit_user_path
   end
 
   def edit

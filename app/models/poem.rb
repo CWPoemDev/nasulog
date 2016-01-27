@@ -16,6 +16,7 @@ class Poem < ActiveRecord::Base
   belongs_to :user, required: true
   belongs_to :original_poem, class_name: 'Poem'
   has_many :repoems, class_name: :Poem, foreign_key: :original_poem_id
+  has_many :read_poems, dependent: :destroy
 
   delegate :icon_url, to: :user
   delegate :name, to: :user, prefix: :author
@@ -31,4 +32,11 @@ class Poem < ActiveRecord::Base
     end
   end
 
+  def previous
+    Poem.where("created_at < ?", self.created_at).order("id DESC").first
+  end
+
+  def next
+    Poem.where("created_at > ?", self.created_at).order("id ASC").first
+  end
 end

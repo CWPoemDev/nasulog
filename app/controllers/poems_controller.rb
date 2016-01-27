@@ -1,7 +1,6 @@
 class PoemsController < ApplicationController
   before_filter :login_required
-  before_action :set_poem, only: [:edit, :update]
-  skip_before_action :verify_authenticity_token, if: :json_request?
+  before_action :set_poem, only: [:edit, :update, :destroy]
 
   def index
     @poems = Poem.where(user: current_user).order(created_at: :desc)
@@ -21,7 +20,6 @@ class PoemsController < ApplicationController
   def create
     @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
     if @poem.valid?
-      render :show and return if json_request?
       redirect_to @poem
     else
       render :new
@@ -33,11 +31,15 @@ class PoemsController < ApplicationController
 
   def update
     if @poem.update(poem_params)
-      render :show and return if json_request?
       redirect_to @poem
     else
       render :edit
     end
+  end
+
+  def destroy
+    @poem.destroy
+    redirect_to poems_path
   end
 
   private
