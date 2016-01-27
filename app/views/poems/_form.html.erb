@@ -1,10 +1,12 @@
+<%= render 'original_poem_link', poem: poem.original_poem %>
 <%= render partial: 'shared_partials/errors', object: poem.errors %>
 <%= simple_form_for poem do |f| %>
+  <%= f.input :original_poem_id, as: :hidden %>
   <%= react_component 'PoemForm', {
     title: poem.title.to_s,
     description: poem.description.to_s,
     description_html: markdown(poem.description)
   } %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+<%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 

@@ -9,10 +9,12 @@ class PoemsController < ApplicationController
   def show
     @poem = Poem.find(params[:id])
     @read_poems = ReadPoem.where(poem_id: params[:id])
+    @repoems = @poem.repoems.includes(:user)
   end
 
   def new
-    @poem = Poem.new
+    @poem = Poem.new(original_poem_id: params[:poem_id])
+    @poem.quote_original_poem
   end
 
   def create
@@ -47,6 +49,6 @@ class PoemsController < ApplicationController
   end
 
   def poem_params
-    params.require(:poem).permit(:title, :description)
+    params.require(:poem).permit(:title, :description, :original_poem_id)
   end
 end

@@ -3,6 +3,7 @@
     <div class="panel-body">
       <div class="page-header">
         <h1><%= @poem.title %></h1>
+        <%= render 'original_poem_link', poem: @poem.original_poem %>
       </div>
       <div class="poem-area">
         <p>
@@ -19,12 +20,13 @@
         <%= image_tag @poem.icon_url, class: "img-circle", width: 40 %>
       </div>
       <div class="media-body">
-        <div>
-          <%= @poem.author_name %>
-        </div>
-        <div>
-          <%= l @poem.created_at %>
-        </div>
+        <%= @poem.author_name %> <br/>
+        <%= l @poem.created_at %>
+      </div>
+      <div class="media-right text-right">
+        <%= link_to new_poem_path(poem_id: @poem.id) do %>
+          <i class="fa fa-retweet fa-2x" data-toggle="tooltip" data-placement="right" title="Repoem"></i>
+        <% end %>
       </div>
     </div>
   </div>
@@ -67,5 +69,18 @@
       <% end %>
       <li role="presentation"><%= link_to "みんなのポエム一覧に戻る", home_index_path%></li>
     </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% @repoems.each do |repoem| %>
+      <div class="small">
+        <%= image_tag repoem.icon_url, class: "img-circle", width: 16 %>
+        <%= repoem.author_name %>さんがリポエムしました
+        <%= link_to repoem do %>
+          <%= markdown(repoem.description.lines.first.chomp) %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
