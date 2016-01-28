@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Compass/compass-rails.git
-  revision: a1c890628d61f62e61474de2c00dde2658251196
+  revision: 5b16c6c6ef8ad28f84e61a460602592fea5fc810
   branch: master
   specs:
     compass-rails (3.0.0)
@@ -10,22 +10,24 @@ GIT
 
 GIT
   remote: git://github.com/metaskills/less-rails.git
-  revision: 539f28d174bfb2e6969a9cd04f89e65a730f2e8f
+  revision: 7e8e7a1123c206869cea86acfdb01b3835f001c1
   specs:
-    less-rails (2.7.0)
+    less-rails (2.7.1)
       actionpack (>= 4.0)
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
 
-GIT
-  remote: git://github.com/rails/rails.git
-  revision: 92039d7c7bacfe5747f96047e80f0e8ceb481f62
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.0.0.beta1.1)
       actionpack (= 5.0.0.beta1.1)
+      celluloid (~> 0.17.2)
       coffee-rails (~> 4.1.0)
-      nio4r (~> 1.2)
+      em-hiredis (~> 0.3.0)
+      faye-websocket (~> 0.10.0)
+      redis (~> 3.0)
       websocket-driver (~> 0.6.1)
     actionmailer (5.0.0.beta1.1)
       actionpack (= 5.0.0.beta1.1)
@@ -51,6 +53,7 @@ GIT
       globalid (>= 0.3.6)
     activemodel (5.0.0.beta1.1)
       activesupport (= 5.0.0.beta1.1)
+      builder (~> 3.1)
     activerecord (5.0.0.beta1.1)
       activemodel (= 5.0.0.beta1.1)
       activesupport (= 5.0.0.beta1.1)
@@ -62,37 +65,15 @@ GIT
       method_source
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    rails (5.0.0.beta1.1)
-      actioncable (= 5.0.0.beta1.1)
-      actionmailer (= 5.0.0.beta1.1)
-      actionpack (= 5.0.0.beta1.1)
-      actionview (= 5.0.0.beta1.1)
-      activejob (= 5.0.0.beta1.1)
-      activemodel (= 5.0.0.beta1.1)
-      activerecord (= 5.0.0.beta1.1)
-      activesupport (= 5.0.0.beta1.1)
-      bundler (>= 1.3.0, < 2.0)
-      railties (= 5.0.0.beta1.1)
-      sprockets-rails (>= 2.0.0)
-    railties (5.0.0.beta1.1)
-      actionpack (= 5.0.0.beta1.1)
-      activesupport (= 5.0.0.beta1.1)
-      method_source
-      rake (>= 0.8.7)
-      thor (>= 0.18.1, < 2.0)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
     annotate (2.7.0)
       activerecord (>= 3.2, < 6.0)
       rake (~> 10.4)
     arel (7.0.0)
     ast (2.2.0)
-    autoprefixer-rails (6.2.3)
+    autoprefixer-rails (6.3.1)
       execjs
       json
-    babel-source (5.8.34)
+    babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
@@ -108,6 +89,23 @@ GEM
       sprockets (> 3.0.2)
     builder (3.2.2)
     byebug (8.2.1)
+    celluloid (0.17.3)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.5)
+      timers (>= 4.1.1)
     chunky_png (1.3.5)
     coderay (1.1.0)
     coffee-rails (4.1.1)
@@ -138,6 +136,9 @@ GEM
     dotenv-rails (2.1.0)
       dotenv (= 2.1.0)
       railties (>= 4.0, < 5.1)
+    em-hiredis (0.3.1)
+      eventmachine (~> 1.0)
+      hiredis (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.9.1)
     execjs (2.6.0)
@@ -146,11 +147,11 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    faraday (0.9.2)
+    faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
-    faye-websocket (0.9.2)
+    faye-websocket (0.10.2)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
     ffi (1.9.10)
@@ -164,12 +165,14 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
+    hiredis (0.6.1)
+    hitimes (1.2.3)
     httpauth (0.2.1)
     i18n (0.7.0)
-    jbuilder (2.3.2)
-      activesupport (>= 3.0.0, < 5)
+    jbuilder (2.4.0)
+      activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
-    jquery-rails (4.0.5)
+    jquery-rails (4.1.0)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -192,7 +195,6 @@ GEM
     multi_json (1.11.2)
     multipart-post (2.0.0)
     mysql2 (0.3.20)
-    nio4r (1.2.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth2 (0.6.1)
@@ -208,7 +210,7 @@ GEM
     omniauth-oauth2 (1.0.2)
       oauth2 (~> 0.6.0)
       omniauth (~> 1.0)
-    parser (2.3.0.1)
+    parser (2.3.0.2)
       ast (~> 2.2)
     powerpack (0.1.1)
     pry (0.10.3)
@@ -224,6 +226,18 @@ GEM
       json
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails (5.0.0.beta1.1)
+      actioncable (= 5.0.0.beta1.1)
+      actionmailer (= 5.0.0.beta1.1)
+      actionpack (= 5.0.0.beta1.1)
+      actionview (= 5.0.0.beta1.1)
+      activejob (= 5.0.0.beta1.1)
+      activemodel (= 5.0.0.beta1.1)
+      activerecord (= 5.0.0.beta1.1)
+      activesupport (= 5.0.0.beta1.1)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 5.0.0.beta1.1)
+      sprockets-rails (>= 2.0.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -237,13 +251,19 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.4)
-    rainbow (2.0.0)
+    railties (5.0.0.beta1.1)
+      actionpack (= 5.0.0.beta1.1)
+      activesupport (= 5.0.0.beta1.1)
+      method_source
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+    rainbow (2.1.0)
     raindrops (0.15.0)
     rake (10.5.0)
-    rb-fsevent (0.9.6)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.2.0)
+    rdoc (4.2.1)
     react-rails (1.5.0)
       babel-transpiler (>= 0.7.0)
       coffee-script-source (~> 1.8)
@@ -252,32 +272,37 @@ GEM
       rails (>= 3.2)
       tilt
     redcarpet (3.3.4)
+    redis (3.2.2)
     ref (2.0.0)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
     rspec-collection_matchers (1.1.2)
       rspec-expectations (>= 2.99.0.beta1)
-    rspec-core (3.4.1)
-      rspec-support (~> 3.4.0)
-    rspec-expectations (3.4.0)
+    rspec-core (3.1.7)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.2)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.1)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-rails (1.3.2)
-      rack (>= 1.0.0)
-      rspec (>= 1.3.0)
-    rspec-support (3.4.1)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.3)
+      rspec-support (~> 3.1.0)
+    rspec-rails (3.1.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+      rspec-support (~> 3.1.0)
+    rspec-support (3.1.2)
     rubocop (0.36.0)
       parser (>= 2.3.0.0, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
     ruby-progressbar (1.7.5)
-    sass (3.4.20)
+    sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -290,13 +315,12 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
-    slack-api (1.2.1)
-      faraday (>= 0.7, < 0.10)
+    slack-api (0.0.4)
+      faraday (>= 0.7, <= 0.9)
       faraday_middleware (~> 0.8)
-      faye-websocket (~> 0.9.2)
       multi_json (~> 1.0, >= 1.0.3)
     slop (3.6.0)
-    spring (1.6.0)
+    spring (1.6.2)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -309,7 +333,9 @@ GEM
       ref
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.1)
+    tilt (2.0.2)
+    timers (4.1.1)
+      hitimes
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -322,7 +348,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    web-console (2.2.1)
+    web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
@@ -358,7 +384,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pry-doc
   pry-rails
-  rails (= 5.0.0.beta1.1)!
+  rails (= 5.0.0.beta1.1)
   rails_12factor
   react-rails
   redcarpet
