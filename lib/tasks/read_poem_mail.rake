@@ -6,8 +6,6 @@ namespace :read_poem_mail do
     poems = Poem.where(id: read_poems.pluck(:poem_id))
     users = User.where(id: poems.pluck(:user_id))
 
-    users.each do |user|
-      ReadPoemMailer.read_poem(user, poems).deliver
-    end
+    ReadPoemMailer.read_poem(users, poems).deliver
   end
 end
