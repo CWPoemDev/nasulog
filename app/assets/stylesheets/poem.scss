@@ -2,6 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin navWidth($width) {
+  .pager {
+    .previous{
+      a {
+        display: block;
+        width: $width;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .next {
+      a{
+        display: block;
+        width: $width;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
 .poem-area {
   min-height: 300px;
 }
@@ -31,6 +55,8 @@
   margin-bottom: 15px;
 }
 
+@include navWidth(250px);
+
 @media (max-width: 768px) {
   .repoem-link{
     margin-bottom: 0;
@@ -41,4 +67,6 @@
   .poem-form {
     margin: 15px;
   }
+
+  @include navWidth(150px);
 }
