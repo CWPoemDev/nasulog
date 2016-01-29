@@ -36,7 +36,6 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
-  gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'rspec'
   gem 'rspec-collection_matchers'
@@ -46,4 +45,8 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'hirb'
   gem 'hirb-unicode'
+end
+
+group :development do
+  gem 'web-console', '~> 3.0'
 end
