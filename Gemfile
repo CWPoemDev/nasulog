@@ -26,6 +26,10 @@ gem 'slack-api'
 gem 'browserify-rails'
 gem 'react-rails'
 gem 'kaminari'
+# TODO: rails_serve_static_assets は rails_12factor の依存gemなので指定する必要は無いが、
+#  rails5 に対応したバージョンがリリースされていないためmasterを指定
+gem 'rails_serve_static_assets', github: 'heroku/rails_serve_static_assets', branch: 'master'
+
 
 group :development, :test do
   gem 'annotate'
