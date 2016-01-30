@@ -1,6 +1,6 @@
 class ReadPoemsController < ApplicationController
   def index
-    @read_poems = Poem.joins(:read_poems).where("read_poems.user_id = ?", current_user.id).group(:id).order(created_at: :DESC)
+    @read_poems = Poem.joins(:read_poems).where(read_poems: { user: current_user} ).uniq.order(created_at: :DESC)
   end
 
   def create

@@ -1,5 +1,8 @@
 ja:
   nasulog: "茄子ログ"
+  header:
+    my_poem: "マイポエム"
+    read_poem: "読んだポエム"
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
