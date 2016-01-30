@@ -12,7 +12,7 @@
 #  updated_at       :datetime         not null
 #
 
-class Poem < ActiveRecord::Base
+class Poem < ApplicationRecord
   belongs_to :user, required: true
   belongs_to :original_poem, class_name: 'Poem'
   has_many :repoems, class_name: :Poem, foreign_key: :original_poem_id

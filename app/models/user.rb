@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   has_many :read_poems, dependent: :destroy
   has_many :poems, dependent: :destroy
 

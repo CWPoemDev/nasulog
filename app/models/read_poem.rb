@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class ReadPoem < ActiveRecord::Base
+class ReadPoem < ApplicationRecord
   belongs_to :user, required: true
   belongs_to :poem, required: true
 
