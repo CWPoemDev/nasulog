@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1><%= t '.title' %></h1>
+</div>
+<ul class="list-group container-fluid">
+  <% @read_poems.each do |poem| %>
+    <li class="list-group-item ">
+      <div class="row">
+        <div class="col-xs-8">
+          <%= link_to poem.title, poem %>
+        </div>
+        <div class="col-xs-4">
+          <%= l poem.created_at%>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

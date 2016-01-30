@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :poems, shallow: true do
     resources :read_poems, only: [:create, :destroy]
   end
+  resources :read_poems, only: [:index]
   resource :user, only: [:show, :edit, :update]
   root to: 'home#index'
 
