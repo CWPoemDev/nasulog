@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   namespace :api do
     resources :emoji, only: [:index]
     resources :markdown_previews, only: [:create]
-    resources :home, only: [:index], defaults: { format: :json }
     resources :poems, only: [:index, :show, :create, :update, :destroy], defaults: { format: :json }, shallow: true do
       resources :read_poems, only: [:create, :destroy], defaults: { format: :json }
     end
-    resource :user, only: [:show], defaults: { format: :json }
+    resource :user, only: [:show], defaults: { format: :json } do
+      get 'poems', defaults: { format: :json }, to: 'user_poems#index'
+    end
   end
 end
