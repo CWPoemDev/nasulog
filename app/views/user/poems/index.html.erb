@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>自分のポエム一覧</h1>
+</div>
+<p>
+  <%= link_to "ポエムを作成する", new_poem_path, class: "btn btn-primary btn-lg" %>
+</p>
+<ul class="list-group container-fluid">
+  <% @poems.each do |poem| %>
+    <li class="list-group-item ">
+      <div class="row">
+        <div class="col-xs-9">
+          <%= link_to poem.title, poem %>
+        </div>
+        <div class="col-xs-3">
+          <%= l poem.created_at%>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
