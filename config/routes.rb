@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   resources :read_poems, only: [:index]
   resource :user, only: [:show, :edit, :update] do
-    get 'poems', to: 'user_poems#index'
+    scope module: :user do
+      resources 'poems', only: [:index]
+    end
   end
   root to: 'home#index'
 
@@ -21,7 +23,9 @@ Rails.application.routes.draw do
       resources :read_poems, only: [:create, :destroy], defaults: { format: :json }
     end
     resource :user, only: [:show], defaults: { format: :json } do
-      get 'poems', defaults: { format: :json }, to: 'user_poems#index'
+      scope module: :user do
+        resources 'poems', only: [:index], defaults: { format: :json }
+      end
     end
   end
 end

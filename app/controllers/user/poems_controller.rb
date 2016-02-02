@@ -1,4 +1,4 @@
-class UserPoemsController < ApplicationController
+class User::PoemsController < ApplicationController
   before_filter :login_required
 
   def index
