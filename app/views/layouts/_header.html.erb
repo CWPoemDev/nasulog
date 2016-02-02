@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="gloabal-header">
         <% if current_user.present? %>
         <ul class="nav navbar-nav">
-          <li><%= link_to t("header.my_poem"), poems_path %></li>
+          <li><%= link_to t("header.my_poem"), poems_user_path %></li>
           <li><%= link_to t("header.read_poem"), read_poems_path %></li>
         </ul>
         <% end %>

@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   get  '/auth/failure' => 'sessions#failure'
   get  '/logout' => 'sessions#destroy'
 
-  resources :home
+  resources :home, only: [:index]
   resources :poems, shallow: true do
     resources :read_poems, only: [:create, :destroy]
   end
   resources :read_poems, only: [:index]
-  resource :user, only: [:show, :edit, :update]
+  resource :user, only: [:show, :edit, :update] do
+    get 'poems', to: 'user_poems#index'
+  end
   root to: 'home#index'
 
   namespace :api do

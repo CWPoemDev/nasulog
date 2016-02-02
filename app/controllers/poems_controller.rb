@@ -3,7 +3,7 @@ class PoemsController < ApplicationController
   before_action :set_poem, only: [:edit, :update, :destroy]
 
   def index
-    @poems = Poem.where(user: current_user).order(created_at: :desc)
+    @poems = Poem.all.order(id: :desc).includes(:user).page(params[:page])
   end
 
   def show
