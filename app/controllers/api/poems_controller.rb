@@ -1,5 +1,6 @@
 class Api::PoemsController < Api::ApplicationController
-  before_action :set_poem, only: [:show, :update, :destroy]
+  before_action :set_current_user_poem, only: [:update, :destroy]
+  before_action :set_poem, only: [:show]
 
   def index
     @poems,@has_more = Poem.all.order(id: :desc).includes(:user).extending(LoadMorePagenation).load_more(:id, params[:last_id], params[:count])
@@ -40,6 +41,10 @@ class Api::PoemsController < Api::ApplicationController
 
   def set_poem
     @poem = Poem.find(params[:id])
+  end
+
+  def set_current_user_poem
+    @poem = current_user.poems.find(params[:id])
   end
 
   def poem_params
