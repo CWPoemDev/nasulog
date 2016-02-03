@@ -1,0 +1,6 @@
+<%= Date.yesterday%>に読んだよマークがついたポエム一覧
+
+<% @poems.each do |poem|%>
+  <%= poem.title %>
+  <%= poem_url poem %>
+<% end%>

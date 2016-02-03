@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 20160123054054) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "read_poems", ["poem_id"], name: "index_read_poems_on_poem_id", using: :btree
-  add_index "read_poems", ["user_id"], name: "index_read_poems_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.text     "google_uid", limit: 65535
