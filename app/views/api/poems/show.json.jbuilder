@@ -9,4 +9,5 @@ json.poem do
     json.partial! 'api/shared_partials/user', user: read_poem.user
   end
   json.created_at @poem.created_at
+  json.original_poem_id @poem.original_poem_id
 end

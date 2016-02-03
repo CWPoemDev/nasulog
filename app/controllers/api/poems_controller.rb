@@ -9,6 +9,11 @@ class Api::PoemsController < Api::ApplicationController
     @read_poems = ReadPoem.where(poem_id: params[:id])
   end
 
+  def quote
+    @poem = Poem.new(original_poem_id: params[:poem_id])
+    @poem.quote_original_poem
+  end
+
   def create
     @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
     if @poem.valid?
