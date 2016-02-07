@@ -30,7 +30,9 @@ gem 'kaminari'
 #  v0.0.4 では rails5 に対応したコミットが含まれていないため master を指定
 #  refs: https://github.com/heroku/rails_serve_static_assets/commit/4c187a8c36019dfa84704ce0e35efef859a516dc
 gem 'rails_serve_static_assets', github: 'heroku/rails_serve_static_assets', branch: 'master'
-
+# NOTE: 下記PRがマージされるまではエラーが出るので、個人のブランチを使用
+#  https://github.com/heroku/rails_stdout_logging/pull/20
+gem 'rails_stdout_logging', github: 'kibitan/rails_stdout_logging', branch: 'compatible_rails5'
 
 group :development, :test do
   gem 'annotate'
