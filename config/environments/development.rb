@@ -25,7 +25,6 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.raise_runtime_errors = true
 
-<<<<<<< HEAD
   config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
@@ -37,12 +36,11 @@ Rails.application.configure do
   # 	authentication:        'plain',
   # 	enable_starttls_auto:  true
   # }
-=======
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
->>>>>>> append `rake rails:update`
 end
