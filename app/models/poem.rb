@@ -13,8 +13,8 @@
 #
 
 class Poem < ApplicationRecord
-  belongs_to :user, required: true
-  belongs_to :original_poem, class_name: 'Poem'
+  belongs_to :user
+  belongs_to :original_poem, class_name: 'Poem', required: false
   has_many :repoems, class_name: :Poem, foreign_key: :original_poem_id
   has_many :read_poems, dependent: :destroy
 

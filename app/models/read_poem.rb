@@ -10,8 +10,8 @@
 #
 
 class ReadPoem < ApplicationRecord
-  belongs_to :user, required: true
-  belongs_to :poem, required: true
+  belongs_to :user
+  belongs_to :poem
 
   delegate :icon_url, to: :user
   delegate :name, to: :user, prefix: :user
