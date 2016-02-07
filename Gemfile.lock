@@ -9,13 +9,6 @@ GIT
       sprockets (< 4.0)
 
 GIT
-  remote: git://github.com/heroku/rails_serve_static_assets.git
-  revision: 239b9d0c6cf54a1f8a33b02177774410900cf10e
-  branch: master
-  specs:
-    rails_serve_static_assets (0.0.4)
-
-GIT
   remote: git://github.com/kibitan/rails_stdout_logging.git
   revision: 02a59481034e70e68f608b3bf1df96f75379d5a8
   branch: compatible_rails5
@@ -231,6 +224,7 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
     railties (5.0.0.beta2)
       actionpack (= 5.0.0.beta2)
       activesupport (= 5.0.0.beta2)
@@ -354,7 +348,6 @@ DEPENDENCIES
   puma
   rails (>= 5.0.0.beta2, < 5.1)
   rails_12factor
-  rails_serve_static_assets!
   rails_stdout_logging!
   react-rails
   redcarpet
