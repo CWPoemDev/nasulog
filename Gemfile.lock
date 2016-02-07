@@ -244,6 +244,7 @@ GEM
       rails (>= 3.2)
       tilt
     redcarpet (3.3.4)
+    redis (3.2.2)
     ref (2.0.0)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
@@ -351,10 +352,12 @@ DEPENDENCIES
   rails_stdout_logging!
   react-rails
   redcarpet
+  redis (~> 3.0)
   rspec
   rspec-collection_matchers
   rspec-rails
   rubocop
+  sass-rails (~> 5.0)
   simple_form
   slack-api
   spring
