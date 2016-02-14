@@ -68,6 +68,4 @@ RSpec.configure do |config|
   config.after(:suite) do
     Elasticsearch::Extensions::Test::Cluster.stop
   end
-      end
-    end
 end

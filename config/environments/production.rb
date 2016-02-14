@@ -67,4 +67,6 @@ Rails.application.configure do
     authentication:        'plain',
     enable_starttls_auto:  true
   }
+
+  config.elasticsearch_host = ENV['ELASTICSEARCH_URL'] || 'http://127.0.0.1:9200'
 end
