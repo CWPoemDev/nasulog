@@ -4,6 +4,7 @@ module Concerns::Poem::Searchable
 
   included do
     include Elasticsearch::Model
+    include Elasticsearch::Model::Callbacks
     index_name "poem_#{Rails.env}"
 
     settings do
