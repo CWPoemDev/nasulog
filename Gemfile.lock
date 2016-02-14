@@ -9,6 +9,14 @@ GIT
       sprockets (< 4.0)
 
 GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: 5629661f84ad808411f08bcea9c5513f3bb58265
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/kibitan/rails_stdout_logging.git
   revision: 02a59481034e70e68f608b3bf1df96f75379d5a8
   branch: compatible_rails5
@@ -151,9 +159,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
-    kaminari (0.16.3)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     libv8 (3.16.14.13)
@@ -339,7 +344,7 @@ DEPENDENCIES
   hirb-unicode
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari
+  kaminari!
   less-rails!
   mysql2 (~> 0.3.13)
   omniauth

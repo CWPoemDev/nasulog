@@ -26,7 +26,10 @@ gem 'gemoji'
 gem 'slack-api'
 gem 'browserify-rails'
 gem 'react-rails'
-gem 'kaminari'
+# NOTE: 以下のIssueのため
+# releaseはされてないのでGitHubを直接見に行く
+# https://github.com/amatsuda/kaminari/issues/774
+gem 'kaminari', github: 'amatsuda/kaminari'
 gem 'redis', '~> 3.0'
 # NOTE: 下記PRがマージされるまではエラーが出るので、個人のブランチを使用
 #  https://github.com/heroku/rails_stdout_logging/pull/20
