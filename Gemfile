@@ -47,6 +47,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.4.x'
   gem 'rspec-collection_matchers'
+  gem 'elasticsearch-extensions'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'rubocop', require: false
