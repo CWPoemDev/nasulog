@@ -39,4 +39,23 @@ class Poem < ApplicationRecord
   def next
     Poem.where("created_at > ?", self.created_at).order("id ASC").first
   end
+
+  include Elasticsearch::Model
+  index_name "poem_#{Rails.env}"
+
+  settings do
+    mappings dynamic: 'false' do
+      indexes :title, analyzer: 'kuromoji'
+      indexes :description, analyzer: 'kuromoji'
+      indexes :author_naem, analyzer: 'kuromoji'
+      indexes :created_at, type: 'date', format: 'date_time'
+    end
+  end
+
+  def as_indexed_json(options = {})
+    attributes
+    .symbolize_keys
+    .slice(:title, :description, :created_at)
+    .merge(author_name: author_name)
+  end
 end
