@@ -24,6 +24,8 @@ class Poem < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, presence: true
 
+  include Concerns::Poem::Searchable
+
   def quote_original_poem
     if original_poem
       self.title = "RP: #{original_poem.title}"
@@ -38,43 +40,5 @@ class Poem < ApplicationRecord
 
   def next
     Poem.where("created_at > ?", self.created_at).order("id ASC").first
-  end
-
-  def self.search(params = {})
-    keyword = params[:keywords]
-
-    search_definition = Elasticsearch::DSL::Search.search {
-      query {
-        if keyword.present?
-          multi_match {
-            query keyword
-            fields %w{ title description author_name }
-          }
-        else
-          match_all
-        end
-      }
-    }
-
-    __elasticsearch__.search(search_definition)
-  end
-
-  include Elasticsearch::Model
-  index_name "poem_#{Rails.env}"
-
-  settings do
-    mappings dynamic: 'false' do
-      indexes :title, analyzer: 'kuromoji'
-      indexes :description, analyzer: 'kuromoji'
-      indexes :author_naem, analyzer: 'kuromoji'
-      indexes :created_at, type: 'date', format: 'date_time'
-    end
-  end
-
-  def as_indexed_json(options = {})
-    attributes
-    .symbolize_keys
-    .slice(:title, :description, :created_at)
-    .merge(author_name: author_name)
   end
 end
