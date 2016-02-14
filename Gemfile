@@ -45,9 +45,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'spring'
-  gem 'rspec'
+  gem 'rspec-rails', '~> 3.4.x'
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'rubocop', require: false
