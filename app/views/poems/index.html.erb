@@ -1,5 +1,9 @@
 <div class="page-header">
-  <h1>みんなのポエム一覧</h1>
+  <% unless @search_params %>
+    <h1>みんなのポエム一覧</h1>
+  <% else %>
+    <h1><%= "「#{@search_params&.fetch('keywords')}」の検索結果"%> <small><%= "(#{@poems.total_count}件)" %></small></h1>
+  <% end %>
 </div>
 <p>
 <%= link_to "ポエムを作成する", new_poem_path, class: "btn btn-primary btn-lg" %>
@@ -12,7 +16,7 @@
           <%= link_to poem do %>
             <div class="medila">
               <div class="media-left">
-                <%= image_tag(poem.icon_url, class: "img-circle", width: 60) %>
+                <%= image_tag(poem.icon_url, class: "img-circle", width: 60)  if poem.icon_url %>
               </div>
               <div class="media-body">
                 <div class="media-heading">

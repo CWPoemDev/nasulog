@@ -1,9 +1,10 @@
 class PoemsController < ApplicationController
   before_filter :login_required
   before_action :set_poem, only: [:edit, :update, :destroy]
+  before_action :set_search_params, only: [:index]
 
   def index
-    @poems = Poem.all.order(id: :desc).includes(:user).page(params[:page])
+    @poems = Poem.search(@search_params).page(params[:page]).records
   end
 
   def show
@@ -46,6 +47,10 @@ class PoemsController < ApplicationController
 
   def set_poem
     @poem = current_user.poems.find(params[:id])
+  end
+
+  def set_search_params
+    @search_params = params[:search] || {}
   end
 
   def poem_params
