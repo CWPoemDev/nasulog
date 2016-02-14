@@ -40,6 +40,25 @@ class Poem < ApplicationRecord
     Poem.where("created_at > ?", self.created_at).order("id ASC").first
   end
 
+  def self.search(params = {})
+    keyword = params[:keywords]
+
+    search_definition = Elasticsearch::DSL::Search.search {
+      query {
+        if keyword.present?
+          multi_match {
+            query keyword
+            fields %w{ title description author_name }
+          }
+        else
+          match_all
+        end
+      }
+    }
+
+    __elasticsearch__.search(search_definition)
+  end
+
   include Elasticsearch::Model
   index_name "poem_#{Rails.env}"
 
