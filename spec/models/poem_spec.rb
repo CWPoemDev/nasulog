@@ -58,4 +58,20 @@ RSpec.describe Poem, type: :model do
       it { is_expected.to eq @poem_previous }
     end
   end
+
+  describe '.search' do
+    let!(:nasu_poem) { create(:poem, title: '那須', description: 'がんばれよ！') }
+    let!(:suzuki_poem) { create(:poem, title: '鈴木さん', description: 'やったぜ！') }
+    let!(:iwaki_poem) { create(:poem, title: '岩木山', description: 'がんばれよ！那須さん') }
+    before { sleep 1 } # elasticsearchにindexが反映されるのを少し待つ
+
+    it 'キーワードに応じた検索結果が得られること' do
+      aggregate_failures do
+        expect(Poem.search(keywords: '那須').records.to_a).to include nasu_poem
+        expect(Poem.search(keywords: 'がんばれ').records.to_a).to include nasu_poem, iwaki_poem
+        expect(Poem.search(keywords: 'やったぜ').records.to_a).to include suzuki_poem
+        expect(Poem.search(keywords: 'hoge').records.to_a).to eq []
+      end
+    end
+  end
 end
