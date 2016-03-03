@@ -10,7 +10,7 @@ module LoadMorePagenation
     num = (num.present? && num.to_i>=0) ? num.to_i : 20
 
     data_all = self
-    data_all = data_all.where("#{column.to_s} < #{last_param}") if last_param.present?
+    data_all = data_all.where("#{column.to_s} < ?", last_param) if last_param.present?
     data_all = data_all.order("#{column.to_s} DESC").limit(num+1)
 
     if data_all.length > num
