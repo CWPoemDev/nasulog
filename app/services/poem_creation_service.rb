@@ -30,6 +30,9 @@ class PoemCreationService
       ▼Title
       #{poem.title}
 
+      ▼本文
+      #{poem.description.truncate(60)}
+
       ▼URL
       #{view_context.poem_url(poem)}
       ▼Author
