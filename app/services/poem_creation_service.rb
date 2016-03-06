@@ -31,7 +31,7 @@ class PoemCreationService
       #{poem.title}
 
       ▼本文
-      #{poem.description.truncate(60)}
+      #{poem.description.gsub(/(\r\n|\r|\n|\f)/, '').truncate(120)}
 
       ▼URL
       #{view_context.poem_url(poem)}
