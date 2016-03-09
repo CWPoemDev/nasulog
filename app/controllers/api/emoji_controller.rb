@@ -9,7 +9,7 @@ module Api
   #   }
   # ]
   class EmojiController < ApplicationController
-    before_filter :login_required
+    before_action :login_required
     def index
       @emojis = Emoji.start_with(params[:query])
     end
