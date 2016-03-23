@@ -7,14 +7,22 @@
 <ul class="list-group container-fluid">
   <% @poems.each do |poem| %>
     <li class="list-group-item ">
-      <div class="row">
-        <div class="col-xs-9">
-          <%= link_to poem.title, poem %>
+      <%= link_to poem do %>
+        <div class="row">
+          <div class="col-xs-6">
+            <%= poem.title %>
+          </div>
+          <div class="col-xs-3">
+            <span><%= poem.read_poems.size %></span>個読んだよマークがつけられました
+          </div>
+          <div class="col-xs-3">
+            <%= l poem.created_at%>
+          </div>
         </div>
-        <div class="col-xs-3">
-          <%= l poem.created_at%>
-        </div>
-      </div>
+      <% end %>
     </li>
   <% end %>
 </ul>
+<div class="row text-center">
+  <%= paginate @poems %>
+</div>
