@@ -2,7 +2,7 @@ class ReadPoemsController < ApplicationController
   before_action :login_required
 
   def index
-    @read_poems = Poem.joins(:read_poems).where(read_poems: { user: current_user} ).uniq.order(created_at: :DESC)
+    @read_poems = Poem.joins(:read_poems).where(read_poems: { user: current_user} ).uniq.order(created_at: :DESC).page(params[:page])
   end
 
   def create
