@@ -24,6 +24,8 @@ class Poem < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, presence: true
 
+  include Concerns::Poem::Searchable
+
   def quote_original_poem
     if original_poem
       self.title = "RP: #{original_poem.title}"

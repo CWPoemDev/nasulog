@@ -1,0 +1,9 @@
+dependencies:
+  post:
+    - wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-2.1.1.tar.gz
+    - tar -xvf elasticsearch-2.1.1.tar.gz
+    - elasticsearch-2.1.1/bin/plugin install analysis-kuromoji
+    - elasticsearch-2.1.1/bin/elasticsearch: {background: true}
+test:
+  override:
+    - TEST_CLUSTER_COMMAND=/home/ubuntu/nasulog/elasticsearch-2.1.1/bin/elasticsearch bundle exec rspec spec

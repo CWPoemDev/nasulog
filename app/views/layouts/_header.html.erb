@@ -12,10 +12,14 @@
       </div>
       <div class="collapse navbar-collapse" id="gloabal-header">
         <% if current_user.present? %>
-        <ul class="nav navbar-nav">
-          <li><%= link_to t("header.my_poem"), user_poems_path %></li>
-          <li><%= link_to t("header.read_poem"), read_poems_path %></li>
-        </ul>
+          <ul class="nav navbar-nav">
+            <li><%= link_to t("header.my_poem"), user_poems_path %></li>
+            <li><%= link_to t("header.read_poem"), read_poems_path %></li>
+            <%= simple_form_for :search, url: poems_path, method: :get, html: { class: 'navbar-form navbar-left' } do |f| %>
+              <%= f.input :keywords, as: :string, input_html: { value: @search_params&.fetch('keywords') }, label: false %>
+              <%= f.button :submit, 'ポエムを検索' ,class: "btn btn-default" %>
+            <% end %>
+          </ul>
         <% end %>
         <p class="navbar-text navbar-right">
           <% if current_user.blank? %>
