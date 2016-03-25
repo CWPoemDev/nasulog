@@ -35,22 +35,24 @@ gem 'redis', '~> 3.0'
 #  https://github.com/heroku/rails_stdout_logging/pull/20
 gem 'rails_stdout_logging', github: 'kibitan/rails_stdout_logging', branch: 'compatible_rails5'
 
-group :development, :test do
+group :development do
+  gem 'web-console', '~> 3.0'
   gem 'annotate'
   gem 'byebug'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
   gem 'spring'
-  gem 'rspec'
-  gem 'rspec-collection_matchers'
-  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-doc'
+  gem 'pry-byebug'
   gem 'rubocop', require: false
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'bullet'
 end
 
-group :development do
-  gem 'web-console', '~> 3.0'
+group :test do
+  gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-rails'
 end
