@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123054054) do
+ActiveRecord::Schema.define(version: 20160325155807) do
 
   create_table "poems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160123054054) do
     t.text     "description",      limit: 65535
     t.boolean  "show"
     t.integer  "original_poem_id"
+    t.string   "image"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end

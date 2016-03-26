@@ -19,6 +19,7 @@ class PoemsController < ApplicationController
 
   def create
     @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
+
     if @poem.valid?
       redirect_to @poem
     else
@@ -49,6 +50,6 @@ class PoemsController < ApplicationController
   end
 
   def poem_params
-    params.require(:poem).permit(:title, :description, :original_poem_id)
+    params.require(:poem).permit(:title, :description, :original_poem_id, :image)
   end
 end

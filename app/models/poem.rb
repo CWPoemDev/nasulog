@@ -8,6 +8,7 @@
 #  description      :text(65535)
 #  show             :boolean
 #  original_poem_id :integer
+#  image            :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
@@ -23,6 +24,8 @@ class Poem < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, presence: true
+
+  mount_uploader :image, ImageUploader
 
   def quote_original_poem
     if original_poem

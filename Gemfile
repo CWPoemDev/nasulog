@@ -34,6 +34,8 @@ gem 'redis', '~> 3.0'
 # NOTE: 下記PRがマージされるまではエラーが出るので、個人のブランチを使用
 #  https://github.com/heroku/rails_stdout_logging/pull/20
 gem 'rails_stdout_logging', github: 'kibitan/rails_stdout_logging', branch: 'compatible_rails5'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   gem 'annotate'

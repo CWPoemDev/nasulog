@@ -5,8 +5,15 @@
   <%= react_component 'PoemForm', {
     title: poem.title.to_s,
     description: poem.description.to_s,
-    description_html: markdown(poem.description)
+    description_html: markdown(poem.description),
+    image: poem.image.to_s
   } %>
-<%= f.button :submit, class: "btn btn-primary" %>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+  </div>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
-
