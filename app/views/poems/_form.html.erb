@@ -5,8 +5,7 @@
   <%= react_component 'PoemForm', {
     title: poem.title.to_s,
     description: poem.description.to_s,
-    description_html: markdown(poem.description),
-    image: poem.image.to_s
+    description_html: markdown(poem.description)
   } %>
   <div class="row">
     <div class="panel panel-default">
