@@ -6,7 +6,7 @@
         <%= render 'original_poem_link', poem: @poem.original_poem %>
       </div>
       <div class="poem-area">
-        <%= image_tag @poem.image_url(:normal) %>
+        <%= image_tag @poem.image_url(:normal) if @poem[:image] %>
         <p>
           <%= markdown(@poem.description) %>
         </p>
