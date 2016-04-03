@@ -7,12 +7,14 @@
     description: poem.description.to_s,
     description_html: markdown(poem.description)
   } %>
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= f.file_field :image %>
+  <%= f.fields_for :poemimages do |image| %>
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= image.file_field :image %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

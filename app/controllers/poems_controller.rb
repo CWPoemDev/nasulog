@@ -8,6 +8,7 @@ class PoemsController < ApplicationController
 
   def show
     @poem = Poem.find(params[:id])
+    @image = Poemimage.find_by(poem_id: @poem.id)
     @read_poems = ReadPoem.where(poem_id: params[:id])
     @repoems = @poem.repoems.includes(:user)
   end
@@ -19,6 +20,9 @@ class PoemsController < ApplicationController
 
   def create
     @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
+    @poemimage = Poemimage.new(image: poemimage_params[:image])
+    @poemimage.poem_id = @poem.id
+    @poemimage.save
 
     if @poem.valid?
       redirect_to @poem
@@ -32,6 +36,13 @@ class PoemsController < ApplicationController
 
   def update
     if @poem.update(poem_params)
+
+      if poemimage_params[:image]
+        @poemimage = Poemimage.find_by(poem_id: @poem.id)
+        @poemimage.image = poemimage_params[:image]
+        @poemimage.save
+      end
+
       redirect_to @poem
     else
       render :edit
@@ -50,6 +61,10 @@ class PoemsController < ApplicationController
   end
 
   def poem_params
-    params.require(:poem).permit(:title, :description, :original_poem_id, :image)
+    params.require(:poem).permit(:title, :description, :original_poem_id, :poemimages)
+  end
+
+  def poemimage_params
+    params.require(:poem).require(:poemimages).permit(:image)
   end
 end

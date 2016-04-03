@@ -7,7 +7,7 @@
       </div>
       <div class="poem-area">
         <div class="poem-img-area">
-          <%= image_tag @poem.image_url(:normal), class: :poem_img if @poem[:image] %>
+          <%= image_tag @image.image_url(:normal), class: :poem_img if @image %>
         </div>
         <p>
           <%= markdown(@poem.description) %>
