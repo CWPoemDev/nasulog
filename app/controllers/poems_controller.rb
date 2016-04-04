@@ -20,9 +20,7 @@ class PoemsController < ApplicationController
 
   def create
     @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
-    @poemimage = Poemimage.new(image: poemimage_params[:image])
-    @poemimage.poem_id = @poem.id
-    @poemimage.save
+    @poem.images.create(image: poemimage_params[:image])
 
     if @poem.valid?
       redirect_to @poem
@@ -38,9 +36,10 @@ class PoemsController < ApplicationController
     if @poem.update(poem_params)
 
       if poemimage_params[:image]
-        @poemimage = Poemimage.find_by(poem_id: @poem.id)
-        @poemimage.image = poemimage_params[:image]
-        @poemimage.save
+        old_poem_image = Poemimage.where(poem_id: @poem.id)
+        old_poem_image.update_all(poem_id: nil)
+
+        @poem.images.create(image: poemimage_params[:image])
       end
 
       redirect_to @poem

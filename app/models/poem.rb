@@ -17,7 +17,7 @@ class Poem < ApplicationRecord
   belongs_to :original_poem, class_name: 'Poem', required: false
   has_many :repoems, class_name: :Poem, foreign_key: :original_poem_id
   has_many :read_poems, dependent: :destroy
-  has_many :image
+  has_many :images, class_name: 'Poemimage'
 
   delegate :icon_url, to: :user
   delegate :name, to: :user, prefix: :author
