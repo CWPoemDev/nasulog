@@ -36,7 +36,7 @@ gem 'redis', '~> 3.0'
 gem 'rails_stdout_logging', github: 'kibitan/rails_stdout_logging', branch: 'compatible_rails5'
 gem 'carrierwave'
 gem 'fog'
-gem 'rmagick'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'annotate'

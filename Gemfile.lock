@@ -289,6 +289,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -376,7 +377,6 @@ GEM
     redcarpet (3.3.4)
     redis (3.2.2)
     ref (2.0.0)
-    rmagick (2.15.4)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -476,6 +476,7 @@ DEPENDENCIES
   jquery-rails
   kaminari!
   less-rails!
+  mini_magick
   mysql2 (~> 0.3.13)
   omniauth
   omniauth-google-oauth2
@@ -488,7 +489,6 @@ DEPENDENCIES
   react-rails
   redcarpet
   redis (~> 3.0)
-  rmagick
   rspec
   rspec-collection_matchers
   rspec-rails
