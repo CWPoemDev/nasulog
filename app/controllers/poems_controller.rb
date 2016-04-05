@@ -15,12 +15,12 @@ class PoemsController < ApplicationController
 
   def new
     @poem = Poem.new(original_poem_id: params[:poem_id])
+    @poem.poemimages.build
     @poem.quote_original_poem
   end
 
   def create
     @poem = PoemCreationService.create(current_user, poem_params, view_context: view_context)
-    @poem.images.create(image: poemimage_params[:image])
 
     if @poem.valid?
       redirect_to @poem
@@ -33,15 +33,8 @@ class PoemsController < ApplicationController
   end
 
   def update
+    # TODO 既存の画像を削除する処理を入れる
     if @poem.update(poem_params)
-
-      if poemimage_params[:image]
-        old_poem_image = Poemimage.where(poem_id: @poem.id)
-        old_poem_image.update_all(poem_id: nil)
-
-        @poem.images.create(image: poemimage_params[:image])
-      end
-
       redirect_to @poem
     else
       render :edit
@@ -60,10 +53,6 @@ class PoemsController < ApplicationController
   end
 
   def poem_params
-    params.require(:poem).permit(:title, :description, :original_poem_id, :poemimages)
-  end
-
-  def poemimage_params
-    params.require(:poem).require(:poemimages).permit(:image)
+    params.require(:poem).permit(:title, :description, :original_poem_id, poemimages_attributes: [:image])
   end
 end
