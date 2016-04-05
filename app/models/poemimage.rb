@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_poemimages_on_poem_id  (poem_id)
+#
 
 class Poemimage < ApplicationRecord
   belongs_to :poem
