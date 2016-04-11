@@ -14,6 +14,7 @@
 class User < ApplicationRecord
   has_many :read_poems, dependent: :destroy
   has_many :poems, dependent: :destroy
+  has_one :one_time_token, dependent: :destroy
 
   def my_poem?(poem)
     self == poem.user
@@ -21,6 +22,11 @@ class User < ApplicationRecord
 
   def my_read_poem?(read_poem)
     self == read_poem.user
+  end
+
+  def create_one_time_token
+    OneTimeToken.delete_all(user_id:id)
+    one_time_token = OneTimeToken.create(user_id: id)
   end
 
   def self.form_omniauth(auth)

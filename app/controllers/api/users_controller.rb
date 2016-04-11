@@ -4,6 +4,10 @@ class Api::UsersController < Api::ApplicationController
   def show
   end
 
+  def auth_token
+    render nothing: true, status: 401 and return if current_user.blank?
+    @token = current_user.create_one_time_token
+  end
 
   private
 
