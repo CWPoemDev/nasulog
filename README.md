@@ -32,7 +32,7 @@ nasum
   * とりあえず必須項目の Product name shown to users だけ入力すれば ok
 * Create client ID からクライアントIDを作る
   * Application type は web application を選択
-  * Authorized redirect URIs は `http://localhost:3000/auth/google_oauth2/callback` としておく (ドメインやポート番号はローカルの環境に合わせる)
+  * Authorized redirect URIs は `http://localhost:3000/auth/google/callback` としておく (ドメインやポート番号はローカルの環境に合わせる)
 * プロジェクトの Overview ページの Google APIs から、"Google+ API" を enable にする
 
 #### .env に環境変数を書いておく
