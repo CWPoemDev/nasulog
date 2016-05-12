@@ -35,18 +35,10 @@ nasum
   * Authorized redirect URIs は `http://localhost:3000/auth/google_oauth2/callback` としておく (ドメインやポート番号はローカルの環境に合わせる)
 * プロジェクトの Overview ページの Google APIs から、"Google+ API" を enable にする
 
-#### .env に環境変数を書いておく
+#### .env.exampleをコピーし .env に環境変数を書いておく
 
 ```bash
-# ローカルの MySQL の root のパスワード
-DB_PASS=your_mysql_root_password
-
-# 認証で許可する Google Apps ドメイン
-RESTRICT_DOMAIN=example.com
-
-# Google OAuth 用の id と secret
-GOOGLE_CLIENT_ID=your_client_id
-GOOGLE_CLIENT_SECRET=your_client_secret
+cp .env.example .env
 ```
 
 #### Rails アプリケーションの初期設定
