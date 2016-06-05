@@ -65,3 +65,18 @@ $ ./bin/rake spec
 
 * 可能であれば `bin/setup` に手順を追加
 * それが無理なら README.md に追記を
+
+## Heroku
+
+### nodejsの設定
+
+- heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
+
+### MySQLの設定
+
+- ClearDB
+- JawsDB
+
+Add-onsで`mysql`で検索して上記のいずれかを追加。生成される環境変数の`CLEARDB_DATABASE_URL`を`DATABASE_URL`として追加する。
+
+※ その際に`mysql`の部分を`mysql2`に設定する
