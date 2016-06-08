@@ -17,12 +17,15 @@ class Poem < ApplicationRecord
   belongs_to :original_poem, class_name: 'Poem', required: false
   has_many :repoems, class_name: :Poem, foreign_key: :original_poem_id
   has_many :read_poems, dependent: :destroy
+  has_many :poemimages, class_name: 'Poemimage', inverse_of: :poem
 
   delegate :icon_url, to: :user
   delegate :name, to: :user, prefix: :author
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, presence: true
+
+  accepts_nested_attributes_for :poemimages
 
   def quote_original_poem
     if original_poem

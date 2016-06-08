@@ -47,6 +47,15 @@
   border-top: 1px solid #ddd;
 }
 
+.poem-area {
+  div.poem-img-area{
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+}
+
 .repoem-link{
   margin-bottom: 15px;
 }
