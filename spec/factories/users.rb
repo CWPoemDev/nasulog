@@ -4,7 +4,8 @@ FactoryGirl.define do
   end
 
   factory :user do
-    name Faker::Name.name
+    name { Faker::Name.name }
     email
+    icon_url { Faker::Avatar.image(Faker::Lorem.word, "128x128", "jpg") }
   end
 end

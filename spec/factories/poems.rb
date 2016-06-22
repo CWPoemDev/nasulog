@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :poem do
-    title Faker::Lorem.sentence
-    description Faker::Lorem.paragraphs.join "\n"
+    title { Faker::Lorem.sentence }
+    description { Faker::Lorem.paragraphs.join "\n" }
     association :user, factory: :user
 
     trait :now do
