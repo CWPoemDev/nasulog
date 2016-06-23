@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :read_poem do
-    poem_id 1
-user_id 1
+    association :poem, factory: :poem
+    association :user, factory: :user
   end
-
 end
