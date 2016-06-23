@@ -33,7 +33,7 @@
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= link_to "それな", poem_read_poems_path(@poem), method: :post, class: "btn btn-primary"%>
+    <%= link_to "読んだよ", poem_read_poems_path(@poem), method: :post, class: "btn btn-primary"%>
     <% @read_poems.each do |read_poem| %>
       <span><%= link_to_if current_user.my_read_poem?(read_poem),
                            image_tag(read_poem.icon_url, class: "img-circle", width: 35, alt: read_poem.user_name, title: read_poem.user_name ),
