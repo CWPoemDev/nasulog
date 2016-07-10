@@ -1,8 +1,9 @@
+# coding: utf-8
 source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '>= 5.0.0.beta2', '< 5.1'
+gem 'rails', '< 5.1'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
