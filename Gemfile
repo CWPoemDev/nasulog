@@ -51,6 +51,7 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'

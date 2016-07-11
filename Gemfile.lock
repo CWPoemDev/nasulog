@@ -342,6 +342,7 @@ DEPENDENCIES
   compass-rails!
   dotenv-rails
   factory_girl_rails
+  faker
   font-awesome-sass
   gemoji
   hirb
