@@ -17,13 +17,6 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
-  remote: git://github.com/kibitan/rails_stdout_logging.git
-  revision: 02a59481034e70e68f608b3bf1df96f75379d5a8
-  branch: compatible_rails5
-  specs:
-    rails_stdout_logging (0.0.4)
-
-GIT
   remote: git://github.com/metaskills/less-rails.git
   revision: 05186ebeea3a1dce50852b4d1285f31eb6585613
   specs:
@@ -198,7 +191,7 @@ GEM
       ast (~> 2.2)
     pkg-config (1.1.7)
     powerpack (0.1.1)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -235,6 +228,7 @@ GEM
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.0)
       actionpack (= 5.0.0)
       activesupport (= 5.0.0)
@@ -365,7 +359,7 @@ DEPENDENCIES
   puma
   rails (< 5.1)
   rails_12factor
-  rails_stdout_logging!
+  rails_stdout_logging
   react-rails
   redcarpet
   redis (~> 3.0)
