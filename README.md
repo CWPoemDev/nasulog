@@ -22,6 +22,7 @@ nasum
 * nodejs
 * v8
 * Google のトークン
+* Docker for Mac
 
 ### 準備
 
@@ -39,6 +40,12 @@ nasum
 
 ```bash
 cp .env.example .env
+```
+
+#### ミドルウェアの起動
+
+```bash
+docker-compose -f docker-compose.yml up
 ```
 
 #### Rails アプリケーションの初期設定

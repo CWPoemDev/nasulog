@@ -2,20 +2,23 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: 5
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: nasulog_development
-  socket: /tmp/mysql.sock
   username: root
   password: <%= ENV["DB_PASS"] %>
+  host: <%= ENV['DEVELOPMENT_DATABASE_HOST'] || "127.0.0.1" %>
+  port: <%= ENV['MYSQL_EXTERNAL_PORT'] || "3306" %>
 
 test:
   <<: *default
   database: nasulog_test
-  socket: /tmp/mysql.sock
   username: root
   password: <%= ENV["DB_PASS"] %>
+  host: <%= ENV['DEVELOPMENT_DATABASE_HOST'] || "127.0.0.1" %>
+  port: <%= ENV['MYSQL_EXTERNAL_PORT'] || "3306" %>
 
 production:
   <<: *default
