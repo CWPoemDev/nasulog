@@ -1,0 +1,12 @@
+storage:
+ image: busybox
+ volumes:
+   - /var/lib/mysql
+db:
+  image: mysql
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+  volumes_from:
+    - storage
+  ports:
+    - "${MYSQL_EXTERNAL_PORT}:3306"
