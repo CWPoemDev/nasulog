@@ -8,7 +8,7 @@ class PoemsController < ApplicationController
 
   def show
     @poem = Poem.find(params[:id])
-    @read_poems = ReadPoem.where(poem_id: params[:id])
+    @read_poems = ReadPoem.includes(:user).where(poem_id: params[:id])
     @repoems = @poem.repoems.includes(:user)
   end
 
