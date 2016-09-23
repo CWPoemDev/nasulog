@@ -1,6 +1,5 @@
 # ユーザー情報を編集する
 class UsersController < ApplicationController
-  before_action :login_required
   before_action :set_user, only: [:show, :edit, :update]
 
   def show

@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  skip_before_action :login_required
+  
   def callback
     auth = request.env['omniauth.auth']
 
