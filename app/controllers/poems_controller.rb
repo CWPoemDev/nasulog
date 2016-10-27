@@ -1,5 +1,4 @@
 class PoemsController < ApplicationController
-  before_action :login_required
   before_action :set_poem, only: [:edit, :update, :destroy]
 
   def index
