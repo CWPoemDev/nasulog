@@ -1,8 +1,9 @@
+# coding: utf-8
 source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '>= 5.0.0.beta2', '< 5.1'
+gem 'rails', '< 5.1'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
@@ -31,9 +32,7 @@ gem 'react-rails'
 # https://github.com/amatsuda/kaminari/issues/774
 gem 'kaminari', github: 'amatsuda/kaminari'
 gem 'redis', '~> 3.0'
-# NOTE: 下記PRがマージされるまではエラーが出るので、個人のブランチを使用
-#  https://github.com/heroku/rails_stdout_logging/pull/20
-gem 'rails_stdout_logging', github: 'kibitan/rails_stdout_logging', branch: 'compatible_rails5'
+gem 'rails_stdout_logging'
 
 group :development do
   gem 'web-console', '~> 3.0'
