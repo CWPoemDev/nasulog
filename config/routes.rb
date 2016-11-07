@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       scope module: :user do
         resources 'poems', only: [:index], defaults: { format: :json }
       end
+      get :auth_token, defaults: { format: :json }
     end
   end
 end

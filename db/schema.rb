@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123054054) do
+ActiveRecord::Schema.define(version: 20160411044136) do
+
+  create_table "one_time_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "user_id",                null: false
+    t.string   "token",      limit: 128
+    t.datetime "expires_at",             null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["token"], name: "index_one_time_tokens_on_token", using: :btree
+    t.index ["user_id"], name: "index_one_time_tokens_on_user_id", using: :btree
+  end
 
   create_table "poems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
